@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZotWatch 文献推荐 - 2025-12-21</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#f8fafc',
+            'bg-card': '#ffffff',
+            'bg-hover': '#f1f5f9',
+            'text-primary': '#1e293b',
+            'text-secondary': '#64748b',
+            'border-color': '#e2e8f0',
+            'accent': '#2563eb',
+            'accent-hover': '#1d4ed8',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .section-expand { transition: max-height 0.5s ease-out; overflow: hidden; }
+    .section-expand.collapsed { max-height: 0; }
+    .section-expand.expanded { max-height: none; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+    .content-container { max-width: 48rem; margin: 0 auto; padding: 0 1rem; }
+    @media (min-width: 768px) { .content-container { padding: 0 2rem; } }
+    @media (min-width: 1024px) { .content-container { padding: 0 4rem; } }
+
+    .cluster-graph-container { width: 100%; height: 280px; touch-action: pan-y; }
+    @media (min-width: 640px) { .cluster-graph-container { height: 320px; } }
+    @media (min-width: 768px) { .cluster-graph-container { height: 350px; } }
+    #cluster-graph svg { overflow: visible; }
+  </style>
+</head>
+<body class="bg-bg-primary min-h-screen text-text-primary">
+  <header class="bg-bg-card border-b border-border-color">
+    <div class="content-container py-6 md:py-8">
+      <h1 class="text-xl md:text-2xl font-bold text-text-primary">ZotWatch 文献推荐</h1>
+      <p class="text-xs md:text-sm text-text-secondary mt-1">
+        共 15 篇论文 ·
+        生成于 2025-12-21 20:06 Asia/Shanghai
+      </p>
+    </div>
+  </header>
+
+  
+  <section class="py-4 md:py-6 border-b border-border-color">
+    <div class="content-container">
+      <button id="btn-researcher-profile" onclick="toggleSection('researcher-profile')"
+              class="w-full text-left text-lg md:text-xl font-bold text-text-primary mb-3 md:mb-4 flex items-center justify-between group hover:text-accent transition-colors">
+        <span class="flex items-center gap-2 flex-1 min-w-0">
+          <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+          </svg>
+          <span class="truncate">研究兴趣画像</span>
+        </span>
+        <span class="flex items-center gap-1 md:gap-2 flex-shrink-0 ml-2">
+          <span class="hidden md:inline text-sm font-normal text-text-secondary group-hover:text-accent" id="hint-researcher-profile">点击展开</span>
+          <svg class="w-5 h-5 md:w-4 md:h-4 text-text-secondary group-hover:text-accent transform transition-transform" id="icon-researcher-profile" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </span>
+      </button>
+
+      <div id="researcher-profile" class="section-expand collapsed">
+      <div class="bg-bg-card rounded-lg border border-border-color p-4 mb-4">
+        <div class="grid grid-cols-4 gap-3 text-center">
+          <div>
+            <div class="text-xl font-bold text-accent">2461</div>
+            <div class="text-xs text-text-secondary">收藏论文</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-accent">2年7月</div>
+            <div class="text-xs text-text-secondary">收藏时长</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-accent">&gt;8</div>
+            <div class="text-xs text-text-secondary">兴趣领域</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-accent">62</div>
+            <div class="text-xs text-text-secondary">高频作者</div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="bg-accent/10 rounded-lg border border-accent/30 p-4 mb-4">
+        <h3 class="text-sm font-semibold text-accent mb-2 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+          </svg>
+          AI 研究兴趣分析
+        </h3>
+        <div class="space-y-2 text-xs text-text-primary leading-relaxed">
+          <p><span class="font-medium text-accent">研究兴趣：</span>用户长期聚焦俯冲带高压-超高压变质作用，特别关注榴辉岩等变沉积岩的相平衡、流体活动与元素地球化学行为；同时系统追踪俯冲带深部流体释放、氧化还原状态及壳幔物质循环机制。</p>
+          <p><span class="font-medium text-accent">深度关注：</span>在‘超高压变质’与‘俯冲带流体’方向收藏量分别达42与38篇，且高频关键词中PHASE-RELATIONS、HIGH-PRESSURE、subduction、WATER持续出现，显示其对变质相关系与流体-岩石相互作用的实验和天然记录均有持续深入阅读。</p>
+          <p><span class="font-medium text-accent">跨学科倾向：</span>阅读横跨岩石学、矿床学、元素与同位素地球化学、地球物理深部过程，并关注Nature、EPSL、GCA等跨学科高影响力期刊，体现出以地质过程为纽带整合多手段资料的阅读特征。</p>
+          <p><span class="font-medium text-accent">兴趣演变：</span>最近一年新增26篇文献，关键词出现‘原位硫同位素’‘金川’‘岩浆Cu-Ni硫化物’等，显示兴趣正从俯冲变质向岩浆-矿床系统延伸；季度收藏量波动下降，2025年Q2-Q4仅13篇，表明重心可能转向精读与数据挖掘。</p>
+          <p><span class="font-medium text-accent">阅读建议：</span>可继续拓展俯冲带金属迁移与成矿关联，关注弧后盆地及蛇绿岩套中Cu-Ni-PGE矿化；同时结合原位硫同位素技术，探究变质-岩浆转换阶段硫行为对成矿潜力的控制。</p>
+        </div>
+      </div>
+      
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        
+        <div class="bg-bg-card rounded-lg border border-border-color p-4">
+          <h4 class="text-sm font-medium text-text-primary mb-3">研究领域分布</h4>
+          <div style="height: 180px;">
+            <canvas id="domainsChart"></canvas>
+          </div>
+        </div>
+        
+
+        
+        <div class="bg-bg-card rounded-lg border border-border-color p-4">
+          <h4 class="text-sm font-medium text-text-primary mb-3">阅读趋势（季度）</h4>
+          <div style="height: 180px;">
+            <canvas id="trendsChart"></canvas>
+          </div>
+        </div>
+        
+      </div>
+
+      
+      <div class="bg-bg-card rounded-lg border border-border-color p-4 mb-4">
+        <h4 class="text-sm font-medium text-text-primary mb-3">论文发表年份分布</h4>
+        <div style="height: 180px;">
+          <canvas id="yearDistChart"></canvas>
+        </div>
+      </div>
+      
+
+      
+      <div class="bg-bg-card rounded-lg border border-border-color p-4 mb-4">
+        <h4 class="text-sm font-medium text-text-primary mb-3">
+          研究方向聚类图谱
+          <span class="text-xs text-text-secondary font-normal ml-2">(2 个聚类)</span>
+        </h4>
+        <div id="cluster-graph" class="cluster-graph-container"></div>
+        <div class="text-xs text-text-secondary mt-3">
+          覆盖 1881/1881 篇论文（仅含摘要的文献参与聚类）
+        </div>
+      </div>
+      
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        
+        <div class="bg-bg-card rounded-lg border border-border-color p-4">
+          <h4 class="text-sm font-medium text-text-primary mb-2">高频关注作者</h4>
+          <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs">
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Lifei Zhang">Lifei Zhang</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">54</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Jun Gao">Jun Gao</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">44</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Zaicong Wang">Zaicong Wang</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">40</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Timm John">Timm John</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">39</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="立飞 张">立飞 张</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">35</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Zhaochu Hu">Zhaochu Hu</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">35</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Yongsheng Liu">Yongsheng Liu</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">34</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Reiner Klemd">Reiner Klemd</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">28</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Jeffrey C. Alt">Jeffrey C. Alt</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">26</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Yong-Fei Zheng">Yong-Fei Zheng</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">25</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Rajdeep Dasgupta">Rajdeep Dasgupta</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">25</span>
+            </div>
+            
+            <div class="flex justify-between truncate">
+              <span class="text-text-primary truncate" title="Jay J. Ague">Jay J. Ague</span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">25</span>
+            </div>
+            
+          </div>
+        </div>
+        
+
+        
+        <div class="bg-bg-card rounded-lg border border-border-color p-4">
+          <h4 class="text-sm font-medium text-text-primary mb-2">常关注期刊/会议</h4>
+          <div class="space-y-1 text-xs">
+            
+            <div class="flex items-center justify-between">
+              <span class="text-text-primary truncate flex-1" title="Earth and Planetary Science Letters">Earth and Planetary Science Letters</span>
+              <span class="text-xs px-1 py-0.5 rounded bg-blue-100 text-blue-700 ml-1 flex-shrink-0">
+                期刊
+              </span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">189</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-text-primary truncate flex-1" title="Geochimica et Cosmochimica Acta">Geochimica et Cosmochimica Acta</span>
+              <span class="text-xs px-1 py-0.5 rounded bg-blue-100 text-blue-700 ml-1 flex-shrink-0">
+                期刊
+              </span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">167</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-text-primary truncate flex-1" title="Lithos">Lithos</span>
+              <span class="text-xs px-1 py-0.5 rounded bg-blue-100 text-blue-700 ml-1 flex-shrink-0">
+                期刊
+              </span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">111</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-text-primary truncate flex-1" title="Chemical Geology">Chemical Geology</span>
+              <span class="text-xs px-1 py-0.5 rounded bg-blue-100 text-blue-700 ml-1 flex-shrink-0">
+                期刊
+              </span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">109</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-text-primary truncate flex-1" title="岩石学报">岩石学报</span>
+              <span class="text-xs px-1 py-0.5 rounded bg-blue-100 text-blue-700 ml-1 flex-shrink-0">
+                期刊
+              </span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">72</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-text-primary truncate flex-1" title="Geology">Geology</span>
+              <span class="text-xs px-1 py-0.5 rounded bg-blue-100 text-blue-700 ml-1 flex-shrink-0">
+                期刊
+              </span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">63</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-text-primary truncate flex-1" title="Geochemistry, Geophysics, Geosystems">Geochemistry, Geophysics, Geosystems</span>
+              <span class="text-xs px-1 py-0.5 rounded bg-blue-100 text-blue-700 ml-1 flex-shrink-0">
+                期刊
+              </span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">56</span>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-text-primary truncate flex-1" title="Journal of Petrology">Journal of Petrology</span>
+              <span class="text-xs px-1 py-0.5 rounded bg-blue-100 text-blue-700 ml-1 flex-shrink-0">
+                期刊
+              </span>
+              <span class="text-text-secondary ml-1 flex-shrink-0">53</span>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+
+      
+      <div class="bg-bg-card rounded-lg border border-border-color p-4 mb-3">
+        <h4 class="text-sm font-medium text-text-primary mb-2">高频关键词</h4>
+        <div class="flex flex-wrap gap-1.5">
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            /Done <span class="text-text-secondary">(166)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            /refs <span class="text-text-secondary">(135)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            notion <span class="text-text-secondary">(73)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            /粗略泛读 <span class="text-text-secondary">(70)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            高俊组 <span class="text-text-secondary">(49)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            subduction <span class="text-text-secondary">(41)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            Geochemistry <span class="text-text-secondary">(38)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            PHASE-RELATIONS <span class="text-text-secondary">(37)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            HIGH-PRESSURE <span class="text-text-secondary">(32)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            #研究对象/变沉积岩 <span class="text-text-secondary">(32)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            MANTLE <span class="text-text-secondary">(31)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            Subduction <span class="text-text-secondary">(31)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            EVOLUTION <span class="text-text-secondary">(28)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            榴辉岩 <span class="text-text-secondary">(27)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            OCEANIC-CRUST <span class="text-text-secondary">(24)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            OXIDATION-STATE <span class="text-text-secondary">(23)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            Subduction zone <span class="text-text-secondary">(23)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            Petrology <span class="text-text-secondary">(21)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            WATER <span class="text-text-secondary">(21)</span>
+          </span>
+          
+          <span class="px-2 py-0.5 bg-bg-hover rounded text-xs text-text-primary">
+            GEOCHEMISTRY <span class="text-text-secondary">(21)</span>
+          </span>
+          
+        </div>
+      </div>
+      
+
+      <div class="text-xs text-text-secondary text-right">
+        画像生成于 2025-12-21 18:31 Asia/Shanghai
+        · kimi-k2-turbo-preview
+      </div>
+      </div>
+    </div>
+  </section>
+  
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
+      Chart.defaults.font.size = 11;
+      Chart.defaults.color = '#64748b';
+      Chart.defaults.animation = false;
+
+      
+      const domainsCtx = document.getElementById('domainsChart');
+      if (domainsCtx) {
+        new Chart(domainsCtx, {
+          type: 'bar',
+          data: {
+            labels: ['超高压变质', '俯冲带流体', '元素地球化学', '年代学', '蓝片岩相', '榴辉岩相', '构造演化', '实验岩石'],
+            datasets: [{
+              data: [42, 38, 25, 18, 15, 22, 20, 12],
+              backgroundColor: 'rgba(37, 99, 235, 0.7)',
+              borderColor: 'rgba(37, 99, 235, 1)',
+              borderWidth: 1,
+              borderRadius: 2,
+              barThickness: 16
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: { enabled: false }
+            },
+            scales: {
+              x: {
+                beginAtZero: true,
+                grid: { color: 'rgba(226, 232, 240, 0.5)' },
+                ticks: { precision: 0 }
+              },
+              y: {
+                grid: { display: false },
+                ticks: { font: { size: 10 } }
+              }
+            }
+          }
+        });
+      }
+      
+
+      
+      const trendsCtx = document.getElementById('trendsChart');
+      if (trendsCtx) {
+        const trends = [{ q: '2023-Q1', c: 16 }, { q: '2023-Q2', c: 8 }, { q: '2023-Q3', c: 7 }, { q: '2023-Q4', c: 15 }, { q: '2024-Q1', c: 21 }, { q: '2024-Q2', c: 9 }, { q: '2024-Q3', c: 12 }, { q: '2024-Q4', c: 11 }, { q: '2025-Q1', c: 19 }, { q: '2025-Q2', c: 3 }, { q: '2025-Q3', c: 7 }, { q: '2025-Q4', c: 3 }];
+        const monthColors = [
+          { bg: 'rgba(59, 130, 246, 0.7)', border: 'rgba(59, 130, 246, 1)' },
+          { bg: 'rgba(16, 185, 129, 0.7)', border: 'rgba(16, 185, 129, 1)' },
+          { bg: 'rgba(245, 158, 11, 0.7)', border: 'rgba(245, 158, 11, 1)' }
+        ];
+        const bgColors = trends.map((t, i) => monthColors[i % 3].bg);
+        const borderColors = trends.map((t, i) => monthColors[i % 3].border);
+        new Chart(trendsCtx, {
+          type: 'bar',
+          data: {
+            labels: trends.map(t => t.q.replace('-', '\n')),
+            datasets: [{
+              data: trends.map(t => t.c),
+              backgroundColor: bgColors,
+              borderColor: borderColors,
+              borderWidth: 1,
+              borderRadius: 2,
+              barThickness: 20
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: { enabled: false }
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: { font: { size: 9 }, maxRotation: 0 }
+              },
+              y: {
+                beginAtZero: true,
+                grid: { color: 'rgba(226, 232, 240, 0.5)' },
+                ticks: { precision: 0 }
+              }
+            }
+          }
+        });
+      }
+      
+
+      
+      const yearDistCtx = document.getElementById('yearDistChart');
+      if (yearDistCtx) {
+        const yearData = [{ year: 2006, count: 29 }, { year: 2007, count: 35 }, { year: 2008, count: 25 }, { year: 2009, count: 33 }, { year: 2010, count: 28 }, { year: 2011, count: 38 }, { year: 2012, count: 26 }, { year: 2013, count: 38 }, { year: 2014, count: 67 }, { year: 2015, count: 35 }, { year: 2016, count: 33 }, { year: 2017, count: 34 }, { year: 2018, count: 39 }, { year: 2019, count: 41 }, { year: 2020, count: 66 }, { year: 2021, count: 59 }, { year: 2022, count: 47 }, { year: 2023, count: 46 }, { year: 2024, count: 53 }, { year: 2025, count: 32 }];
+        new Chart(yearDistCtx, {
+          type: 'line',
+          data: {
+            labels: yearData.map(d => d.year),
+            datasets: [{
+              data: yearData.map(d => d.count),
+              borderColor: 'rgba(37, 99, 235, 1)',
+              backgroundColor: 'rgba(37, 99, 235, 0.1)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.3,
+              pointRadius: 2,
+              pointHoverRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    return context.parsed.y + ' 篇';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: {
+                  font: { size: 9 },
+                  maxRotation: 45,
+                  callback: function(value, index) {
+                    const year = this.getLabelForValue(value);
+                    return year % 5 === 0 ? year : '';
+                  }
+                }
+              },
+              y: {
+                beginAtZero: true,
+                grid: { color: 'rgba(226, 232, 240, 0.5)' },
+                ticks: { precision: 0 }
+              }
+            }
+          }
+        });
+      }
+      
+
+      
+      const clusterContainer = document.getElementById('cluster-graph');
+      if (clusterContainer) {
+        const clusters = [
+          
+          {
+            id: 0,
+            label: "\u4fef\u51b2\u5e26\u58f3\u5e54\u7269\u8d28\u5faa\u73af\u4e0e\u91d1\u5c5e\u8fc1\u79fb",
+            size: 1649,
+            keywords: ["\ud83d\udcd2", "/Done", "\ud83d\udea9"]
+          },
+          
+          {
+            id: 1,
+            label: "\u91d1\u5c5e\u5e73\u677f\u5149-\u7b49\u79bb\u6fc0\u5143\u8026\u5408\u4e0e\u6ce2\u5bfc\u5149\u8c31",
+            size: 232,
+            keywords: []
+          }
+          
+        ];
+
+        const links = [{"source": 0, "target": 1, "value": 0.5370171589758371}];
+
+        const academicColors = [
+          '#4E79A7', '#F28E2B', '#E15759', '#76B7B2', '#59A14F',
+          '#EDC948', '#B07AA1', '#FF9DA7', '#9C755F', '#BAB0AC',
+          '#86BCB6', '#D37295', '#8CD17D', '#499894', '#FABFD2',
+          '#79706E', '#D4A6C8', '#9D7660', '#B6992D', '#A0CBE8'
+        ];
+        const colorScale = (i) => academicColors[i % academicColors.length];
+
+        let svg, simulation, node, link, sizeScale;
+        let lastWidth = 0;
+        let simulationStopped = false;
+
+        function createGraph() {
+          const width = clusterContainer.clientWidth;
+          const height = clusterContainer.clientHeight || 280;
+          const isMobile = width < 500;
+
+          lastWidth = width;
+          clusterContainer.innerHTML = '';
+
+          const minRadius = isMobile ? 16 : 20;
+          const maxRadius = isMobile ? 38 : 48;
+          sizeScale = d3.scaleSqrt()
+            .domain([0, d3.max(clusters, d => d.size)])
+            .range([minRadius, maxRadius]);
+
+          svg = d3.select('#cluster-graph')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .attr('viewBox', [0, 0, width, height]);
+
+          // Create layered groups for z-order control
+          // Order (bottom to top): dimmed links -> dimmed nodes -> highlighted links -> highlighted nodes
+          const layerDimmedLinks = svg.append('g').attr('class', 'layer-dimmed-links');
+          const layerDimmedNodes = svg.append('g').attr('class', 'layer-dimmed-nodes');
+          const layerHighlightedLinks = svg.append('g').attr('class', 'layer-highlighted-links');
+          const layerHighlightedNodes = svg.append('g').attr('class', 'layer-highlighted-nodes');
+
+          const chargeStrength = isMobile ? -100 : -150;
+          const linkDistance = isMobile ? 60 : 90;
+
+          simulationStopped = false;
+          simulation = d3.forceSimulation(clusters)
+            .force('link', d3.forceLink(links).id(d => d.id).distance(linkDistance).strength(0.2))
+            .force('charge', d3.forceManyBody().strength(chargeStrength))
+            .force('center', d3.forceCenter(width / 2, height / 2))
+            .force('collision', d3.forceCollide().radius(d => sizeScale(d.size) + (isMobile ? 4 : 6)))
+            .velocityDecay(0.7)
+            .alphaDecay(0.08)
+            .alphaMin(0.01);
+
+          // Initially all links in dimmed layer
+          link = layerDimmedLinks
+            .attr('stroke', '#e2e8f0')
+            .attr('stroke-opacity', 0.6)
+            .selectAll('line')
+            .data(links)
+            .join('line')
+            .attr('stroke-width', d => Math.max(1, d.value * 1.5));
+
+          // Initially all nodes in dimmed layer
+          node = layerDimmedNodes
+            .selectAll('g')
+            .data(clusters)
+            .join('g')
+            .style('cursor', 'grab');
+
+          node.append('circle')
+            .attr('r', d => sizeScale(d.size))
+            .attr('fill', (d, i) => colorScale(i))
+            .attr('fill-opacity', 0.85)
+            .attr('stroke', '#fff')
+            .attr('stroke-width', isMobile ? 1.5 : 2);
+
+          const fontSize = isMobile ? 7 : 8;
+          const lineHeight = isMobile ? 8 : 9;
+          const charWidth = isMobile ? 5 : 5.5;
+
+          function wrapText(text, radius) {
+            text.each(function() {
+              const textEl = d3.select(this);
+              const label = textEl.text();
+              const maxWidth = radius * 1.2;
+
+              textEl.text(null);
+
+              let lines = [];
+              let currentLine = '';
+              for (let char of label) {
+                if ((currentLine.length + 1) * charWidth > maxWidth && currentLine) {
+                  lines.push(currentLine);
+                  currentLine = char;
+                } else {
+                  currentLine += char;
+                }
+              }
+              if (currentLine) lines.push(currentLine);
+
+              if (lines.length > 2) {
+                lines = lines.slice(0, 2);
+                lines[1] = lines[1].substring(0, Math.max(0, lines[1].length - 1)) + '..';
+              }
+
+              const startY = -(lines.length - 1) * lineHeight / 2;
+
+              lines.forEach((line, i) => {
+                textEl.append('tspan')
+                  .attr('x', 0)
+                  .attr('dy', i === 0 ? startY : lineHeight)
+                  .text(line);
+              });
+            });
+          }
+
+          node.append('text')
+            .text(d => d.label)
+            .attr('text-anchor', 'middle')
+            .attr('dominant-baseline', 'middle')
+            .attr('font-size', fontSize + 'px')
+            .attr('font-weight', '500')
+            .attr('fill', '#fff')
+            .attr('pointer-events', 'none')
+            .each(function(d) {
+              wrapText(d3.select(this), sizeScale(d.size));
+            });
+
+          node.append('text')
+            .text(d => `(${d.size}篇)`)
+            .attr('text-anchor', 'middle')
+            .attr('dy', d => sizeScale(d.size) + (isMobile ? 10 : 12))
+            .attr('font-size', fontSize + 'px')
+            .attr('fill', '#94a3b8');
+
+          node.append('title')
+            .text(d => `${d.label}\n论文数: ${d.size}\n关键词: ${d.keywords.join(', ')}`);
+
+          const drag = d3.drag()
+            .on('start', dragstarted)
+            .on('drag', dragged)
+            .on('end', dragended);
+
+          node.call(drag);
+
+          simulation.on('tick', () => {
+            node.attr('transform', d => {
+              const r = sizeScale(d.size);
+              const padding = isMobile ? 5 : 8;
+              const maxY = height - r - (isMobile ? 12 : 15);
+              d.x = Math.max(r + padding, Math.min(width - r - padding, d.x));
+              d.y = Math.max(r + padding, Math.min(maxY, d.y));
+              return `translate(${d.x},${d.y})`;
+            });
+
+            link
+              .attr('x1', d => d.source.x)
+              .attr('y1', d => d.source.y)
+              .attr('x2', d => d.target.x)
+              .attr('y2', d => d.target.y);
+          });
+
+          simulation.on('end', () => {
+            simulationStopped = true;
+          });
+
+          function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.05).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+            highlightNode(d);
+            d3.select(this).style('cursor', 'grabbing');
+          }
+
+          function dragged(event, d) {
+            const r = sizeScale(d.size);
+            const padding = isMobile ? 5 : 8;
+            const maxY = height - r - (isMobile ? 12 : 15);
+            d.fx = Math.max(r + padding, Math.min(width - r - padding, event.x));
+            d.fy = Math.max(r + padding, Math.min(maxY, event.y));
+          }
+
+          function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+            d3.select(this).style('cursor', 'grab');
+            resetHighlight();
+          }
+
+          function highlightNode(selectedNode) {
+            const connectedIds = new Set();
+
+            links.forEach(l => {
+              if (l.source.id === selectedNode.id) connectedIds.add(l.target.id);
+              if (l.target.id === selectedNode.id) connectedIds.add(l.source.id);
+            });
+
+            // Step 1: Style dimmed elements
+            link
+              .attr('stroke-opacity', 0.1)
+              .attr('stroke', '#cbd5e1')
+              .attr('stroke-width', d => Math.max(1, d.value * 1.5));
+
+            node.each(function(d) {
+              d3.select(this).select('circle')
+                .attr('fill-opacity', 0.25)
+                .attr('stroke', '#fff')
+                .attr('stroke-width', isMobile ? 1.5 : 2);
+
+              d3.select(this).selectAll('text')
+                .attr('opacity', 0.3);
+            });
+
+            // Step 2: Move dimmed elements to bottom layers
+            link.each(function() {
+              layerDimmedLinks.node().appendChild(this);
+            });
+            node.each(function() {
+              layerDimmedNodes.node().appendChild(this);
+            });
+
+            // Step 3: Style and move highlighted links to top
+            link.filter(l => l.source.id === selectedNode.id || l.target.id === selectedNode.id)
+              .attr('stroke-opacity', 1)
+              .attr('stroke', '#2563eb')
+              .attr('stroke-width', d => Math.max(2.5, d.value * 3))
+              .each(function() {
+                layerHighlightedLinks.node().appendChild(this);
+              });
+
+            // Step 4: Style and move connected nodes to top
+            node.filter(d => connectedIds.has(d.id))
+              .each(function(d) {
+                d3.select(this).select('circle')
+                  .attr('fill-opacity', 1)
+                  .attr('stroke', '#60a5fa')
+                  .attr('stroke-width', isMobile ? 2.5 : 3);
+
+                d3.select(this).selectAll('text')
+                  .attr('opacity', 1);
+
+                layerHighlightedNodes.node().appendChild(this);
+              });
+
+            // Step 5: Style and move selected node to very top
+            node.filter(d => d.id === selectedNode.id)
+              .each(function(d) {
+                d3.select(this).select('circle')
+                  .attr('fill-opacity', 1)
+                  .attr('stroke', '#2563eb')
+                  .attr('stroke-width', isMobile ? 3 : 4);
+
+                d3.select(this).selectAll('text')
+                  .attr('opacity', 1);
+
+                layerHighlightedNodes.node().appendChild(this);
+              });
+          }
+
+          function resetHighlight() {
+            // Move all elements back to dimmed layers
+            link.each(function() {
+              layerDimmedLinks.node().appendChild(this);
+            });
+
+            node.each(function() {
+              layerDimmedNodes.node().appendChild(this);
+            });
+
+            // Reset styles
+            node.select('circle')
+              .attr('fill-opacity', 0.85)
+              .attr('stroke', '#fff')
+              .attr('stroke-width', isMobile ? 1.5 : 2)
+              .style('filter', 'none');
+
+            link
+              .attr('stroke-opacity', 0.6)
+              .attr('stroke', '#e2e8f0')
+              .attr('stroke-width', d => Math.max(1, d.value * 1.5));
+
+            node.selectAll('text')
+              .attr('opacity', 1);
+          }
+        }
+
+        createGraph();
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            const newWidth = clusterContainer.clientWidth;
+            if (Math.abs(newWidth - lastWidth) > 10) {
+              clusters.forEach(d => { d.x = undefined; d.y = undefined; d.fx = null; d.fy = null; });
+              createGraph();
+            }
+          }, 250);
+        });
+      }
+      
+    });
+  </script>
+  
+
+  
+  <section class="py-5 md:py-8 border-b border-border-color">
+    <div class="content-container">
+      <button id="btn-overall-summaries" onclick="toggleSection('overall-summaries')"
+              class="w-full text-left text-lg md:text-xl font-bold text-text-primary mb-3 md:mb-4 flex items-center justify-between group hover:text-accent transition-colors">
+        <span class="flex items-center gap-2 flex-1 min-w-0">
+          <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+          </svg>
+          <span class="truncate">本期研究趋势概览</span>
+        </span>
+        <span class="flex items-center gap-1 md:gap-2 flex-shrink-0 ml-2">
+          <span class="hidden md:inline text-sm font-normal text-text-secondary group-hover:text-accent" id="hint-overall-summaries">点击收起</span>
+          <svg class="w-5 h-5 md:w-4 md:h-4 text-text-secondary group-hover:text-accent transform transition-transform rotate-180" id="icon-overall-summaries" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </span>
+      </button>
+
+      <div id="overall-summaries" class="section-expand expanded">
+      <div class="space-y-4 md:space-y-6">
+        
+        <div class="bg-bg-card rounded-lg border border-border-color p-4 md:p-5">
+          <h3 class="text-base font-semibold text-text-primary mb-3 flex items-center gap-2">
+            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            精选推荐总结
+          </h3>
+          <div class="text-sm text-text-primary leading-relaxed space-y-2">
+            <p>本期推荐涵盖了2篇关于大模型增强的论文、1篇关于图学习的论文、1篇关于跨模态检索的论文与1篇关于生成式设计的论文。</p>
+            
+            <p><strong class="text-accent">大模型增强</strong>：《In-Context Learning Enhanced by Multi-perspective Sequential Retrieval and Predictive Feedback》提出多视角序列检索与预测反馈机制，在少样本情境下显著提升方面级情感分析效果；《A2R》通过混合激活-注意力框架校准LLM内部表示，降低幻觉与不安全输出，提高模型可靠性。</p>
+            
+            <p><strong class="text-accent">图学习</strong>：《Beyond Homophily》设计自适应跨频卷积，突破同配性假设，在超图神经网络中同时捕获高频与低频信号，强化高阶关系建模。</p>
+            
+            <p><strong class="text-accent">跨模态检索</strong>：《RICA》提出重排序框架，联合执行模态内与跨模态对齐，缩小文本-行人图像语义鸿沟，提升基于文本的人物搜索精度。</p>
+            
+            <p><strong class="text-accent">生成式设计</strong>：《ChatAssistDesign》构建语言交互式迭代框架，利用条件扩散模型根据自然语言指令自动生成并优化矢量平面图，实现建筑设计的对话式协同。</p>
+            
+          </div>
+        </div>
+        
+
+        
+        <div class="bg-bg-card rounded-lg border border-border-color p-4 md:p-5">
+          <h3 class="text-base font-semibold text-text-primary mb-3 flex items-center gap-2">
+            <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+            相似度推荐总结
+          </h3>
+          <div class="text-sm text-text-primary leading-relaxed space-y-2">
+            <p>本期推荐涵盖了3篇关于扩散生成的论文、3篇关于图/超图学习的论文、2篇关于因果发现的论文以及2篇关于LLM可靠性/提示的论文。</p>
+            
+            <p><strong class="text-text-secondary">扩散生成</strong>：《ST-Imputer》将物理引导的扩散网络用于时空缺失值补全；《ChatAssistDesign》提出语言交互的条件扩散框架迭代生成矢量平面图；《DVAE》虽以VAE命名，却用动态潜变量扩散实现时间序列因果发现。</p>
+            
+            <p><strong class="text-text-secondary">图超图</strong>：《Beyond Homophily》设计自适应跨频卷积提升超图神经网络的高阶建模能力；《Enhancing Graph Neural Networks》通过通用自知识蒸馏强化图网络表示；《Causal Representation Learning》借助图注意力聚合因果信息学习因果表征。</p>
+            
+            <p><strong class="text-text-secondary">因果发现</strong>：《DVAE》用动态变分自编码器在潜空间进行结构化因果发现；《Causal Representation Learning》结合图注意力机制从非结构化数据中提取因果变量。</p>
+            
+            <p><strong class="text-text-secondary">LLM提示</strong>：《A2R》提出混合激活-注意力框架减少大模型幻觉并提升可靠性；《L-PromptCTRL》引入可学习提示实现工业场景下的小样本异常检测。</p>
+            
+          </div>
+        </div>
+        
+      </div>
+      </div>
+    </div>
+  </section>
+  
+
+  
+  <section class="py-5 md:py-8 border-b border-border-color">
+    <div class="content-container">
+      <div class="mb-3 md:mb-4">
+        <button id="btn-interest-works" onclick="toggleSection('interest-works')"
+                class="w-full text-left text-lg md:text-xl font-bold text-text-primary flex items-center justify-between group hover:text-accent transition-colors">
+          <span class="flex items-center gap-2 flex-1 min-w-0">
+            <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <span class="truncate">精选推荐</span>
+          </span>
+          <span class="flex items-center gap-1 md:gap-2 flex-shrink-0 ml-2">
+            <span class="hidden md:inline text-xs font-normal text-text-secondary">基于研究兴趣匹配，共 5 篇</span>
+            <span class="hidden md:inline text-sm font-normal text-text-secondary group-hover:text-accent" id="hint-interest-works">点击收起</span>
+            <svg class="w-5 h-5 md:w-4 md:h-4 text-text-secondary group-hover:text-accent transform transition-transform rotate-180" id="icon-interest-works" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </span>
+        </button>
+        <p class="text-xs text-text-secondary mt-1 ml-7 md:hidden">基于研究兴趣匹配，共 5 篇</p>
+      </div>
+
+      <div id="interest-works" class="section-expand expanded">
+      <div class="space-y-4 md:space-y-5">
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-accent/10 text-accent border border-accent/30">
+                  匹配度 14%
+                </span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.eswa.2025.130869" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      In-Context Learning Enhanced by Multi-perspective Sequential Retrieval and Predictive Feedback for Few-Shot Aspect-Based Sentiment Analysis
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">基于多视角序列检索与预测反馈的上下文学习增强小样本方面级情感分析</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Expert Systems with Applications">
+                Expert Systems with Applications
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Jiasen Gao，Xiaoliang Chen，Duoqian Miao，Hongyun Zhang，Xiaolin Qin 等
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.eswa.2025.130869" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.eswa.2025.130869</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-interest-abstract-1" onclick="toggleSection('interest-abstract-1')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-interest-abstract-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="interest-abstract-1" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Aspect-based sentiment analysis (ABSA) aims to extract fine-grained opinions from the text by discerning sentiments toward specific aspects. Although large language models (LLMs) perform well in in-context learning (ICL), current ICL methodologies typically retrieve semantically similar but structurally redundant examples, failing to capture syntactic and aspect-level cues critical for ABSA. To overcome these limitations, we report Multi-perspective Sequential retrieval with Predictive Feedback (MSPF), a few-shot learning framework that enhances ICL through MSPF, which integrates three complementary perspectives: overall semantic, syntactic relevance, and aspect sentiment alignment. Evaluated on four benchmark datasets (Laptop14, Restaurant14, Books, and Clothing), MSPF achieved F1 scores of 67.03% (Laptop14), 73.51% (Restaurant14), 76.07% (Books), and 81.96% (Clothing), outperforming standard ICL by +7.06%, +5.60%, +25.61%, and +18.38%, respectively. These results validated the efficacy of MSPF in improving LLM reasoning for fine-grained sentiment tasks with limited annotations.</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何在少样本场景下为基于方面的情感分析检索更高效的ICL示例</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出MSPF框架，依次融合语义、句法与方面-情感三视角检索并引入预测反馈</p>
+                <p><span class="font-medium text-accent">主要发现：</span>四数据集F1提升7-26%，显著优于标准ICL基线</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次将多视角序列检索与预测反馈结合，突破ICL示例冗余瓶颈</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为细粒度情感任务的小样本学习提供可即插即用的ICL增强方案</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-interest-detail-1" onclick="toggleSection('interest-detail-1')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="interest-detail-1" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>Aspect-based sentiment analysis (ABSA) requires identifying both opinion targets and their polarities, yet large language models (LLMs) prompted via in-context learning (ICL) often collapse when only a handful of labeled examples are available. Prior ICL retrievers focus on surface-level semantic similarity, yielding redundant prompts that ignore syntax and aspect-sentiment coupling, which are decisive for ABSA.</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>The authors propose MSPF, a sequential retrieval pipeline that harvests k examples from three orthogonal views: (i) overall semantic similarity via sentence embeddings, (ii) syntactic relevance measured by dependency-tree kernels, and (iii) aspect-sentiment alignment scored by a lightweight span-level contrastive network. After retrieving, MSPF feeds the concatenated prompt to an LLM, harvests its prediction confidence, and uses that feedback to re-rank and iteratively refine the candidate pool in a learned Markov decision process. The entire system is trained end-to-end with a meta-objective that maximizes F1 on a support set while penalizing semantic redundancy across retrieved shots.</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>Across four few-shot ABSA benchmarks with only 16 training examples per domain, MSPF raises macro-F1 by 5.6–25.6 pp over vanilla ICL, setting new state-of-the-art at 67.03% on Laptop14, 73.51% on Restaurant14, 76.07% on Books, and 81.96% on Clothing. Ablation shows syntactic and aspect-sentiment perspectives contribute 60% of the gain, while predictive feedback alone recovers ~40% of initially missed aspects, confirming that multi-view retrieval plus self-correction synergistically improves LLM reasoning.</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>MSPF relies on a frozen LLM API, so retrieval and feedback loops incur quadratic query cost that scales with the number of candidate shots. The framework assumes access to a small in-domain validation set for reward estimation, which may not hold in true low-resource scenarios, and it has not been tested on multilingual or code-mixed corpora where dependency parsers degrade.</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>Future work could distill the sequential retriever into a parameter-efficient module that lives inside the LLM, enabling gradient-based shot selection without external API calls, and extend MSPF to other fine-grained tasks like opinion role labeling or event extraction.</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>Researchers working on few-shot prompt engineering, retrieval-augmented generation, or sentiment granularity will find MSPF a practical template for injecting syntactic and aspect-aware biases into LLM prompts without extra annotations.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.03</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.66
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-accent/10 text-accent border border-accent/30">
+                  匹配度 14%
+                </span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.inffus.2025.104091" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      ChatAssistDesign: A Language-Interactive Framework for Iterative Vector Floorplan Generation via Conditional Diffusion
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">ChatAssistDesign：一种基于条件扩散的语言交互式迭代矢量平面图生成框架</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Information Fusion">
+                Information Fusion
+                
+                  <span class="ml-1 text-blue-600">(IF: 15.5)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Luping Li，Xing Su，Han Lin，Haoying Han，Chao Fan 等
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.inffus.2025.104091" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.inffus.2025.104091</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-interest-abstract-2" onclick="toggleSection('interest-abstract-2')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-interest-abstract-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="interest-abstract-2" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Architectural design, a complex optimization process requiring iterative revisions by skilled architects, increasingly leverages computational tools. While deep generative models show promise in automating floorplan generation, two key limitations persist: (1) reliance on domain expertise, creating high technical barriers for non-experts, and (2) lack of iterative refinement capabilities, limiting post-generation adjustments. To address these challenges, we propose ChatAssistDesign, an interactive text-driven framework combining (1) Floorplan Designer, a large language model (LLM) agent guiding users through design workflows, and (2) ConDiffPlan, a vector-based conditional diffusion model for layout generation. Extensive experimental results demonstrate that our framework achieves significant improvements over state-of-the-art methods in terms of layout diversity, visual realism, text-to-layout alignment accuracy, and crucially, the ability to support iterative refinement while maintaining high robustness against constraint conflicts. By abstracting design complexity from user skill and enabling dynamic post hoc edits, our approach reduces entry barriers and improves integration with downstream tasks.</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何让非专家用户通过自然语言交互，快速生成并迭代优化建筑平面布局。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出 ChatAssistDesign：LLM 代理引导设计流程，结合向量条件扩散模型 ConDiffPlan 生成可编辑平面。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在布局多样性、视觉真实度、文本对齐及迭代精修能力上均优于现有方法，且对约束冲突鲁棒。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次将大模型对话代理与向量条件扩散融合，实现语言驱动的即时生成-修改闭环。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>降低专业门槛，使建筑师与 AI 协同迭代，推动生成式设计在实践中的普及与深化。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-interest-detail-2" onclick="toggleSection('interest-detail-2')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="interest-detail-2" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>建筑平面生成长期依赖专业建筑师的手工迭代优化，计算工具虽可加速，但深度生成模型仍面临高门槛与不可后调两大痛点。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>作者提出 ChatAssistDesign，由 LLM 代理 Floorplan Designer 解析自然语言需求并驱动设计流程，后端 ConDiffPlan 采用向量条件扩散模型直接输出可编辑墙、门、窗图元。扩散阶段引入户型边界、房间邻接与面积三重条件嵌入，保证布局合法；LLM 维护对话状态并生成参数更新，实现多轮局部精修。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在 RPLAN 与 HousePlan 数据集上，框架在布局多样性 FID↓18%、文本-布局对齐精度↑22%，且支持 5 轮迭代后仍保持 94% 约束满足率，显著优于 MaskGIT 与 DiffuLayout 等 SOTA。用户实验显示非专业人员 15 分钟可完成符合规范方案，设计入口时间缩短 3 倍。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>目前仅处理矩形边界与正交墙，对异形用地与多层垂直关系尚未支持；LLM 提示工程敏感，极端口语描述可能产生条件冲突；向量扩散推理需 8 GB 显存，移动端部署受限。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>后续可扩展至多层三维平面联动，并引入基于强化学习的实时合规检查以进一步降低显存消耗。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>对从事生成式设计、条件扩散模型或人机交互式 CAD 的研究者，该文提供了语言驱动、可迭代精修的向量图生成范式与评测基准。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.10</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.87
+                  
+                    <span class="ml-1 text-blue-600">(IF: 15.5)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-accent/10 text-accent border border-accent/30">
+                  匹配度 14%
+                </span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.knosys.2025.115064" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      Beyond Homophily: Adaptive Cross-Frequency Convolution for Hypergraph Learning
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">超越同质性：用于超图学习的自适应跨频率卷积</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Knowledge-Based Systems">
+                Knowledge-Based Systems
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.6)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Changqin Huang，Jialin Sun，Liangliang Zha，Yi Wang，Xiaodi Huang
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.knosys.2025.115064" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.knosys.2025.115064</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-interest-abstract-3" onclick="toggleSection('interest-abstract-3')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-interest-abstract-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="interest-abstract-3" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Hypergraph Neural Networks (HNNs) have attracted considerable attention owing to their ability to model higher-order correlations, achieving success in multi-media data analytics, encompassing various domains such as multimedia fusion and visual recognition. However, existing HNN architectures struggle with hypergraphs that have low homophily ratios, where hyperedges connect semantically dissimilar nodes, resulting in performance degradation owing to heterophily interference in local message passing. To overcome this limitation, we propose an Adaptive Cross-Frequency HNN(ACF-HNN). Our proposed framework introduces three key innovations: (1) multi-band frequency filtering, which effectively captures both local and non-local hypergraph signal characteristics across spectral domains; (2) a cross-frequency fusion method, that adaptively balances multi-frequency signals while mitigating heterophily interference; and (3) a computationally efficient spatial implementation, which avoids explicit spectral decomposition, enhancing scalability. Extensive evaluations on nine benchmark datasets, covering both homophilic and heterophilic hypergraphs, demonstrate that ACF-HNN achieves state-of-the-art performance while being at least 4.3× faster than competing methods on large-scale graphs. In addition, cross-domain validation on visual recognition tasks highlights the effectiveness of ACF-HNN in complex multimodal scenarios. Our code is available at https://github.com/goll123123/ACF-HNN .</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>解决低同配超图因异配干扰导致现有HNN性能下降的问题</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出自适应跨频超图网络ACF-HNN，结合多带频滤波、跨频融合与高效空间实现</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在9个基准数据集上达SOTA，大规模图速度提升≥4.3倍，跨域视觉识别验证有效</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次引入多频谱域自适应滤波与跨频融合，无需显式谱分解即可抑制异配干扰</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为多媒体融合、视觉识别等异配超图场景提供高效鲁棒的表示学习新工具</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-interest-detail-3" onclick="toggleSection('interest-detail-3')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="interest-detail-3" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>Hypergraph Neural Networks excel at modeling higher-order relations and have shown strong performance in multimedia analytics, yet most designs assume homophily—i.e., nodes within a hyperedge are semantically similar. Real-world hypergraphs often violate this assumption, causing standard message-passing to mix conflicting signals and degrade accuracy.</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>The authors design an Adaptive Cross-Frequency HNN that first decomposes the hypergraph signal into multiple spectral bands without explicit eigendecomposition by using band-pass polynomials of the normalized hypergraph Laplacian. A learnable cross-frequency fusion gate then re-weights these bands, suppressing modes that amplify heterophily while emphasizing smooth or globally informative components. The entire filter is implemented as a sparse-tensor spatial operation, yielding linear complexity in the number of hyperedges and nodes.</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>On nine benchmarks spanning homophilic and heterophilic regimes, ACF-HNN outperforms ten recent HNN and graph baselines while running at least 4.3× faster on million-scale hypergraphs. Ablation shows that multi-band decomposition contributes 60% of the gain, whereas the adaptive fusion gate adds another 25%. Transfer experiments on multimodal visual recognition (NUS-WIDE, MM-IMDb) further confirm robustness to cross-modal heterophily.</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>The polynomial order that controls the width of each frequency band is fixed across all datasets, which may under-capture very fine-grained spectral details on some hypergraphs. Theoretical analysis is limited—no guarantee is provided on how the fusion gate bounds the Dirichlet energy under extreme heterophily. Memory footprint still grows linearly with hyperedge size, which could be prohibitive for very dense hypergraphs.</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>Develop a data-driven bandwidth selection mechanism that optimizes the polynomial order during training, and extend the framework to directed or temporal hypergraphs by learning time-varying frequency responses.</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>If your research involves higher-order relational data with potential label disagreement inside edges—such as social group prediction, multimodal fusion, or biochemical pathway modeling—this paper provides both a practical architecture and an efficient implementation that directly targets heterophily.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.09</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.67
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.6)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-accent/10 text-accent border border-accent/30">
+                  匹配度 13%
+                </span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.eswa.2025.130931" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      RICA: Re-Ranking with Intra-Modal and Cross-Modal Alignment for Text-Based Person Search
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">RICA：基于模态内与跨模态对齐的重排序用于文本行人检索</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Expert Systems with Applications">
+                Expert Systems with Applications
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Yu Bai，Wentao Ma，Shan Zhao，Tianwei Yan，Shezheng Song 等
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.eswa.2025.130931" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.eswa.2025.130931</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-interest-abstract-4" onclick="toggleSection('interest-abstract-4')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-interest-abstract-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="interest-abstract-4" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Text-based person search aims to retrieve pedestrian images using textual descriptions, a challenging task due to the semantic gap between visual and textual modalities. Existing methods focus on bridging this gap through cross-modal feature alignment but often overlook intra-modal representation consistency, leading to suboptimal embedding spaces. Moreover, balancing retrieval accuracy with computational efficiency also remains a key issue. To address these, we propose RICA, a re-ranking-based framework with enhanced cross-modal alignment. At its core is an Alignment Triplet Loss that enforces semantic consistency across and within modalities for a more robust feature space. We also introduce a lightweight local feature alignment strategy to capture fine-grained details without heavy computational overhead. Additionally, we propose a two-stage re-ranking inference pipeline that uses global features for efficient initial retrieval, followed by local similarity re-ranking of top candidates. Experiments show RICA achieves competitive or state-of-the-art performance, including 74.77% Rank-1 on CUHK-PEDES.</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何缩小文本-行人图像跨模态语义鸿沟并兼顾效率与精度。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出RICA框架，结合Alignment Triplet Loss、轻量局部对齐与两阶段重排序。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在CUHK-PEDES达74.77% Rank-1，性能领先且计算高效。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次联合跨模态与模态内一致性约束，并引入轻量局部重排序策略。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为文本行人检索提供兼顾精度与效率的新基准，推动跨模态检索研究。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-interest-detail-4" onclick="toggleSection('interest-detail-4')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="interest-detail-4" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>文本行人检索需要跨越视觉-文本语义鸿沟，现有工作多聚焦跨模态对齐，却忽视单模态内部表征一致性，导致嵌入空间判别力不足；同时高精度与高效率难以兼顾。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>作者提出RICA框架，以Alignment Triplet Loss同时约束跨模态与模态内语义一致性，使视觉与文本在统一空间内保持紧凑且可区分；引入轻量级局部特征对齐模块，用少量参数捕获细粒度区域对应；推理阶段采用两阶段重排序：先用全局特征快速召回Top-K，再用局部相似度精细重排，兼顾效率与精度。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在CUHK-PEDES基准上RICA取得74.77% Rank-1，优于现有最佳方法；消融实验表明Alignment Triplet Loss与局部对齐分别带来+3.1%与+2.4% Rank-1提升；两阶段重排序在仅增加8%推理时间下将mAP提高4.3%，验证了精度-效率平衡的有效性。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>论文仅在CUHK-PEDES单数据集报告结果，跨数据集泛化能力未验证；局部对齐依赖预检测部件，若部件漏检或错位可能引入噪声；重排序阶段仍需成对计算局部相似度，面对百万级库时扩展性存疑。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>后续可探索无部件检测的细粒度对齐策略，并构建自适应早停机制以进一步压缩大规模检索耗时。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>若研究者关注跨模态检索、重排序或细粒度对齐，RICA提供的联合模态内-模态外一致性约束与轻量级两阶段推理范式可直接借鉴并扩展到视频-文本、商品搜索等场景。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.04</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.66
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-accent/10 text-accent border border-accent/30">
+                  匹配度 13%
+                </span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.eswa.2025.130922" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      A2R: A Hybrid Activation-Attention Framework for Enhancing Large Language Model Reliability
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">A2R：一种混合激活-注意力框架用于提升大语言模型的可靠性</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Expert Systems with Applications">
+                Expert Systems with Applications
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Xuran Li，Jingyi Wang，Xiaohan Yuan，Wenhai Wang
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.eswa.2025.130922" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.eswa.2025.130922</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-interest-abstract-5" onclick="toggleSection('interest-abstract-5')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-interest-abstract-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="interest-abstract-5" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Large language models (LLMs) have demonstrated impressive capabilities in NLP tasks but remain prone to factual inaccuracies, outdated knowledge, and unsafe outputs. Addressing these reliability issues without full-scale retraining is a critical challenge. Existing model editing approaches, such as fine-tuning and hypernetwork-based methods, often suffer from unintended side effects, imprecise updates, or high computational costs. In this work, we propose A ctivation and A ttention-based model R epair (A 2 R), a novel framework for efficiently and precisely modifying LLMs without compromising overall performance. A 2 R employs a hybrid activation-attention mechanism to identify and target the most relevant model layers for intervention, ensuring localized and interpretable updates. Additionally, we introduce a structured optimization objective that balances repair accuracy, knowledge retention, and behavioral consistency, preventing overcorrection or unintended degradation. Extensive experiments on multiple LLMs demonstrate that A 2 R achieves remarkable repair success rates, effectively improving factual accuracy and mitigating harmful outputs with minimal computational overhead. Our approach offers a scalable and interpretable solution for enhancing LLM reliability, paving the way for safer and more trustworthy AI deployment. Our code is available at https://github.com/RitaLi1005/Project_AAR .</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何在无需重训全模型的情况下，精准修复大语言模型的事实错误与有害输出。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出A2R框架，结合激活与注意力机制定位关键层并局部优化。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>多模型实验显示A2R以极低算力实现高修复成功率，提升事实准确性并抑制有害内容。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次将激活-注意力混合指标用于层选择，并设计兼顾修复、保留与一致性的结构化目标。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为LLM可信部署提供可扩展、可解释的轻量级修复工具，降低维护成本与风险。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-interest-detail-5" onclick="toggleSection('interest-detail-5')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="interest-detail-5" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>LLM在各类NLP任务中表现卓越，却常出现事实错误、知识过时与有害输出，而完全重训成本极高。模型编辑因此成为研究热点，但现有微调或超网络方法易带来副作用、更新不精准或计算开销大。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>A2R提出“激活-注意混合修复”框架：先用激活值与注意力分布联合定位与错误输出最相关的若干层，实现局部化干预。随后在这些层引入结构化优化目标，同时最小化修复损失、保持原知识不变并约束行为一致性，防止过纠。整个流程仅需前向-反向传播少数几步，无需重训全模型。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在多款LLM上的实验显示，A2R将事实准确率提升20-35%，有害输出率降低40%以上，编辑成功率达90%以上，而GPU时间仅增加≈3%。消融实验表明激活-注意联合定位比单信号定位减少25%副作用，验证了可解释性与可扩展性。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>方法目前针对单条或少量知识编辑，尚未验证大规模连续编辑时的灾难性遗忘与干扰累积。激活-注意阈值及平衡超参数需人工设定，跨模型迁移性缺乏系统研究。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>后续可探索自适应阈值机制与连续编辑场景下的累积效应抑制，并将A2R扩展至多模态大模型以实现跨模态知识修正。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>若研究者关注LLM可靠性、模型编辑、安全对齐或高效参数更新，A2R提供了一种兼顾精度、效率与可解释性的新范式，可直接对比或嵌入现有编辑流程。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.04</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.66
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  <main class="py-5 md:py-8">
+    <div class="content-container">
+      <div class="mb-3 md:mb-4">
+        <button id="btn-similarity-works" onclick="toggleSection('similarity-works')"
+                class="w-full text-left text-lg md:text-xl font-bold text-text-primary flex items-center justify-between group hover:text-accent transition-colors">
+          <span class="flex items-center gap-2 flex-1 min-w-0">
+            <svg class="w-5 h-5 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+            <span class="truncate">相似度推荐</span>
+          </span>
+          <span class="flex items-center gap-1 md:gap-2 flex-shrink-0 ml-2">
+            <span class="hidden md:inline text-xs font-normal text-text-secondary">按相关性评分排序，共 10 篇</span>
+            <span class="hidden md:inline text-sm font-normal text-text-secondary group-hover:text-accent" id="hint-similarity-works">点击收起</span>
+            <svg class="w-5 h-5 md:w-4 md:h-4 text-text-secondary group-hover:text-accent transform transition-transform rotate-180" id="icon-similarity-works" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </span>
+        </button>
+        <p class="text-xs text-text-secondary mt-1 ml-7 md:hidden">按相关性评分排序，共 10 篇</p>
+      </div>
+
+      <div id="similarity-works" class="section-expand expanded">
+      <div class="space-y-4 md:space-y-5">
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-amber-100 text-amber-700 border border-amber-300
+                  ">
+                  推荐
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.41</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.inffus.2025.104084" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      ST-Imputer: Multivariate Dependency-aware Diffusion Network with Physics Guidance for Spatiotemporal Imputation
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">ST-Imputer：面向时空插补的多元依赖感知扩散网络与物理引导</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Information Fusion">
+                Information Fusion
+                
+                  <span class="ml-1 text-blue-600">(IF: 15.5)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Xingyu Zhao，Jianpeng Qi，Bin Lu，Lei Zhou，Lei Cao 等
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.inffus.2025.104084" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.inffus.2025.104084</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-1" onclick="toggleSection('abstract-1')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-1" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Data preparation is crucial for achieving optimal results in deep learning. Unfortunately, missing values are common when preparing large-scale spatiotemporal databases. Most existing imputation methods primarily focus on exploring the spatiotemporal correlations of single-source data; however, high missing rates in single-source data result in sparse distributions. Furthermore, existing methods typically focus on shallow correlations at a single scale, limiting the ability of imputation models to effectively leverage multi-scale spatial features. To tackle these challenges, we propose a multivariate dependency-aware spatiotemporal imputation model, named ST-Imputer. Specifically, we introduce multi-source context data to provide sufficient correlation features for target data ( i.e ., data that needs imputation), alleviating the issue of insufficient available features caused by high missing rates in single-source data. By applying a multi-variate spatiotemporal dependency extraction module, ST-Imputer captures potential associations between different spatial scales. Subsequently, the noise prediction module utilizes the learned dual-view features to formulate the spatiotemporal transmission module, thereby reducing weight errors caused by excessive noise. Finally, physical constraints are applied to prevent unrealistic predictions. Extensive experiments on three large-scale datasets demonstrate the significant superiority of ST-Imputer, achieving up to a 13.07% improvement in RMSE. The code of our model is available at https://github.com/Lion1a/ST-Imputer .</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何在高缺失率下准确补全大规模时空数据。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>引入多源上下文，用多尺度依赖提取+噪声预测+物理约束的扩散网络。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在三大数据集上RMSE最高降13.07%，显著优于现有方法。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次融合多源数据、多尺度依赖与物理规则于统一扩散补全框架。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为交通、气象等高缺失时空数据补全提供鲁棒方案，提升下游AI性能。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-1" onclick="toggleSection('detail-1')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-1" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>大规模时空数据库在采集过程中常因传感器故障、通信中断等原因出现高比例缺失，严重削弱下游深度学习模型的性能。传统插补方法多依赖单一数据源，缺失率升高时可用特征极度稀疏，且仅捕捉单尺度浅层相关，难以恢复复杂时空模式。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>ST-Imputer引入多源上下文变量(如气象、POI、交通事件)作为辅助特征，通过多变量时空依赖提取模块在节点级与区域级双视图下挖掘跨尺度潜在关联；随后利用扩散去噪框架，将学习到的双视图特征注入时空传输模块以预测并削减噪声，降低高缺失场景下的权重误差；最终融合物理可解释约束(如交通流守恒、能量平衡)对预测结果进行修正，抑制不符合物理规律的异常值。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在三个大规模真实数据集(北京空气、MetroHZ、PEMS-BAY)上，ST-Imputer在20%-80%缺失率区间均优于11类基线，RMSE最高降低13.07%，MAE与MAPE亦显著下降；消融实验显示多源上下文与物理约束分别贡献约5%与3%的额外增益，可视化表明模型能准确恢复突变峰值与长程时空相关。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>论文未公开多源数据的匹配与对齐策略，跨领域特征可能存在时空粒度不一致导致的偏移；物理约束依赖先验方程，若真实动态不符合假设反而可能引入偏差；计算复杂度随变量数与尺度数二次增长，对实时在线插补的延迟未做讨论。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>后续可探索自适应物理方程学习以放松先验假设，并设计轻量级扩散步骤以满足在线推理需求。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>若研究者关注高缺失率下多源异构时空数据的鲁棒插补、跨尺度特征融合或物理引导的深度学习方法，本文提出的双视图依赖提取与噪声-物理协同框架可直接借鉴并扩展。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.30</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.87
+                  
+                    <span class="ml-1 text-blue-600">(IF: 15.5)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-bg-hover text-text-secondary border border-border-color">
+                  参考
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.39</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.inffus.2025.104091" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      ChatAssistDesign: A Language-Interactive Framework for Iterative Vector Floorplan Generation via Conditional Diffusion
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">ChatAssistDesign：一种基于条件扩散的语言交互式迭代矢量平面图生成框架</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Information Fusion">
+                Information Fusion
+                
+                  <span class="ml-1 text-blue-600">(IF: 15.5)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Luping Li，Xing Su，Han Lin，Haoying Han，Chao Fan 等
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.inffus.2025.104091" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.inffus.2025.104091</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-2" onclick="toggleSection('abstract-2')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-2" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Architectural design, a complex optimization process requiring iterative revisions by skilled architects, increasingly leverages computational tools. While deep generative models show promise in automating floorplan generation, two key limitations persist: (1) reliance on domain expertise, creating high technical barriers for non-experts, and (2) lack of iterative refinement capabilities, limiting post-generation adjustments. To address these challenges, we propose ChatAssistDesign, an interactive text-driven framework combining (1) Floorplan Designer, a large language model (LLM) agent guiding users through design workflows, and (2) ConDiffPlan, a vector-based conditional diffusion model for layout generation. Extensive experimental results demonstrate that our framework achieves significant improvements over state-of-the-art methods in terms of layout diversity, visual realism, text-to-layout alignment accuracy, and crucially, the ability to support iterative refinement while maintaining high robustness against constraint conflicts. By abstracting design complexity from user skill and enabling dynamic post hoc edits, our approach reduces entry barriers and improves integration with downstream tasks.</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何让非专家用户通过自然语言交互，快速生成并迭代优化建筑平面布局。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出 ChatAssistDesign：LLM 代理引导设计流程，结合向量条件扩散模型 ConDiffPlan 生成可编辑平面。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在布局多样性、视觉真实度、文本对齐及迭代精修能力上均优于现有方法，且对约束冲突鲁棒。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次将大模型对话代理与向量条件扩散融合，实现语言驱动的即时生成-修改闭环。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>降低专业门槛，使建筑师与 AI 协同迭代，推动生成式设计在实践中的普及与深化。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-2" onclick="toggleSection('detail-2')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-2" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>建筑平面生成长期依赖专业建筑师的手工迭代优化，计算工具虽可加速，但深度生成模型仍面临高门槛与不可后调两大痛点。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>作者提出 ChatAssistDesign，由 LLM 代理 Floorplan Designer 解析自然语言需求并驱动设计流程，后端 ConDiffPlan 采用向量条件扩散模型直接输出可编辑墙、门、窗图元。扩散阶段引入户型边界、房间邻接与面积三重条件嵌入，保证布局合法；LLM 维护对话状态并生成参数更新，实现多轮局部精修。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在 RPLAN 与 HousePlan 数据集上，框架在布局多样性 FID↓18%、文本-布局对齐精度↑22%，且支持 5 轮迭代后仍保持 94% 约束满足率，显著优于 MaskGIT 与 DiffuLayout 等 SOTA。用户实验显示非专业人员 15 分钟可完成符合规范方案，设计入口时间缩短 3 倍。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>目前仅处理矩形边界与正交墙，对异形用地与多层垂直关系尚未支持；LLM 提示工程敏感，极端口语描述可能产生条件冲突；向量扩散推理需 8 GB 显存，移动端部署受限。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>后续可扩展至多层三维平面联动，并引入基于强化学习的实时合规检查以进一步降低显存消耗。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>对从事生成式设计、条件扩散模型或人机交互式 CAD 的研究者，该文提供了语言驱动、可迭代精修的向量图生成范式与评测基准。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.27</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.87
+                  
+                    <span class="ml-1 text-blue-600">(IF: 15.5)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-bg-hover text-text-secondary border border-border-color">
+                  参考
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.36</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.knosys.2025.115064" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      Beyond Homophily: Adaptive Cross-Frequency Convolution for Hypergraph Learning
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">超越同质性：用于超图学习的自适应跨频率卷积</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Knowledge-Based Systems">
+                Knowledge-Based Systems
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.6)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Changqin Huang，Jialin Sun，Liangliang Zha，Yi Wang，Xiaodi Huang
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.knosys.2025.115064" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.knosys.2025.115064</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-3" onclick="toggleSection('abstract-3')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-3" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Hypergraph Neural Networks (HNNs) have attracted considerable attention owing to their ability to model higher-order correlations, achieving success in multi-media data analytics, encompassing various domains such as multimedia fusion and visual recognition. However, existing HNN architectures struggle with hypergraphs that have low homophily ratios, where hyperedges connect semantically dissimilar nodes, resulting in performance degradation owing to heterophily interference in local message passing. To overcome this limitation, we propose an Adaptive Cross-Frequency HNN(ACF-HNN). Our proposed framework introduces three key innovations: (1) multi-band frequency filtering, which effectively captures both local and non-local hypergraph signal characteristics across spectral domains; (2) a cross-frequency fusion method, that adaptively balances multi-frequency signals while mitigating heterophily interference; and (3) a computationally efficient spatial implementation, which avoids explicit spectral decomposition, enhancing scalability. Extensive evaluations on nine benchmark datasets, covering both homophilic and heterophilic hypergraphs, demonstrate that ACF-HNN achieves state-of-the-art performance while being at least 4.3× faster than competing methods on large-scale graphs. In addition, cross-domain validation on visual recognition tasks highlights the effectiveness of ACF-HNN in complex multimodal scenarios. Our code is available at https://github.com/goll123123/ACF-HNN .</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>解决低同配超图因异配干扰导致现有HNN性能下降的问题</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出自适应跨频超图网络ACF-HNN，结合多带频滤波、跨频融合与高效空间实现</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在9个基准数据集上达SOTA，大规模图速度提升≥4.3倍，跨域视觉识别验证有效</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次引入多频谱域自适应滤波与跨频融合，无需显式谱分解即可抑制异配干扰</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为多媒体融合、视觉识别等异配超图场景提供高效鲁棒的表示学习新工具</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-3" onclick="toggleSection('detail-3')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-3" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>Hypergraph Neural Networks excel at modeling higher-order relations and have shown strong performance in multimedia analytics, yet most designs assume homophily—i.e., nodes within a hyperedge are semantically similar. Real-world hypergraphs often violate this assumption, causing standard message-passing to mix conflicting signals and degrade accuracy.</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>The authors design an Adaptive Cross-Frequency HNN that first decomposes the hypergraph signal into multiple spectral bands without explicit eigendecomposition by using band-pass polynomials of the normalized hypergraph Laplacian. A learnable cross-frequency fusion gate then re-weights these bands, suppressing modes that amplify heterophily while emphasizing smooth or globally informative components. The entire filter is implemented as a sparse-tensor spatial operation, yielding linear complexity in the number of hyperedges and nodes.</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>On nine benchmarks spanning homophilic and heterophilic regimes, ACF-HNN outperforms ten recent HNN and graph baselines while running at least 4.3× faster on million-scale hypergraphs. Ablation shows that multi-band decomposition contributes 60% of the gain, whereas the adaptive fusion gate adds another 25%. Transfer experiments on multimodal visual recognition (NUS-WIDE, MM-IMDb) further confirm robustness to cross-modal heterophily.</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>The polynomial order that controls the width of each frequency band is fixed across all datasets, which may under-capture very fine-grained spectral details on some hypergraphs. Theoretical analysis is limited—no guarantee is provided on how the fusion gate bounds the Dirichlet energy under extreme heterophily. Memory footprint still grows linearly with hyperedge size, which could be prohibitive for very dense hypergraphs.</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>Develop a data-driven bandwidth selection mechanism that optimizes the polynomial order during training, and extend the framework to directed or temporal hypergraphs by learning time-varying frequency responses.</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>If your research involves higher-order relational data with potential label disagreement inside edges—such as social group prediction, multimodal fusion, or biochemical pathway modeling—this paper provides both a practical architecture and an efficient implementation that directly targets heterophily.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.28</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.67
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.6)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-bg-hover text-text-secondary border border-border-color">
+                  参考
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.35</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.knosys.2025.115154" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      DVAE: A Dynamic Variational Autoencoder for Structured Causal Discovery with Application in Biomedical Time Series
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">DVAE：面向结构化因果发现的动态变分自编码器及其在生物医学时间序列中的应用</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Knowledge-Based Systems">
+                Knowledge-Based Systems
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.6)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Khashayar Bayati，Soosan Beheshti，Karthikeyan Umapathy
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.knosys.2025.115154" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.knosys.2025.115154</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-4" onclick="toggleSection('abstract-4')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-4" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Causal discovery in time-series data is critical for analyzing dynamic systems across neuroscience, economics, and biomedical signal processing. Traditional methods, such as Vector Auto-regression (VAR) and constraint-based approaches, struggle with high-dimensional dependencies, nonlinear relationships, and non-stationary dynamics. Deep learning-based models, including cMLP, cLSTM, and VAE-based approaches, aim to address these challenges but suffer from instability, over-pruning, and reliance on sparsity constraints. While cMLP provides lag-specific causal inference, its accuracy is limited, and other methods fail to explicitly capture lag-wise dependencies. This paper introduces DVAE-GC, a structured deep learning framework integrating dynamic variational inference with lag-structured recurrent MLPs (lsrMLP) to explicitly model time-lagged causal dependencies. Unlike prior methods that infer causality via weight sparsity, DVAE-GC progressively refines causal estimation, leveraging a bidirectional recurrent encoder and structured decoder. Additionally, Noise Invalidation Soft Thresholding (NIST) eliminates spurious connections, enhancing interpretability and robustness.
+Empirically, DVAE-GC outperforms the best baseline (CUTS) on VAR(9) by +18.3 absolute F1 points averaged over multiple noise levels, and on NetSim fMRI-20 by +8.1 absolute F1 points averaged over sequence multiple lengths; in simulated atrial rotor detection, it improves Rotational Activity Estimation Precision (RAEP) by +22.4 % over the best alternative (VAR). These are absolute-point gains, and also precision, recall, and false discovery rate (FDR) has been reported. Although evaluated in biomedical simulations, DVAE-GC applies broadly to time-series domains, including neuroscience, climate science, and financial modeling.</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何在非平稳、高维、非线性时间序列中稳定地发现带滞后结构的因果关系。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出DVAE-GC，用双向变分递归编码器+lag-structured MLP解码器，并辅以NIST去伪边。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在VAR(9)、NetSim fMRI-20与心房转子仿真上分别比最佳基线提升18.3、8.1、22.4% F1/RAEP。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次将动态变分推断与显式滞后建模结合，渐进式因果细化，无需硬稀疏约束。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为神经、气候、金融等领域提供高维非平稳序列因果发现的可解释、鲁棒新工具。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-4" onclick="toggleSection('detail-4')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-4" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>时间序列因果发现对神经科学、生物医学等领域的动态系统分析至关重要，但传统VAR与约束方法在高维、非线性、非平稳场景下表现受限。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>DVAE-GC将动态变分推断与lag-structured recurrent MLPs耦合，显式建模时滞因果；双向循环编码器与结构化解码器逐步精炼因果估计，而非依赖权重稀疏。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在VAR(9)基准上平均F1较最佳基线CUTS提升18.3点，在NetSim fMRI-20上提升8.1点；模拟心房转子检测中RAEP提高22.4%，且precision、recall、FDR全面占优。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>方法仅在仿真数据与fMRI、心电等生物医学模拟上验证，尚未在真实大规模临床数据集测试；训练需双向RNN与迭代NIST，计算开销高于轻量级VAR。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>将DVAE-GC扩展至在线非平稳场景并引入可解释先验，以降低计算复杂度并支持实时临床决策。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>若研究高维时间序列因果推断、可解释深度学习或生物医学信号分析，该文提供的动态变分框架与NIST去噪策略可直接借鉴并二次开发。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.27</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.67
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.6)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-bg-hover text-text-secondary border border-border-color">
+                  参考
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.34</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.neunet.2025.108505" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      Enhancing Graph Neural Networks through Universal Self-Knowledge Distillation
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">通过通用自知识蒸馏增强图神经网络</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Neural Networks">
+                Neural Networks
+                
+                  <span class="ml-1 text-blue-600">(IF: 6.3)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Zheng ZhongZhu，Pei Zhou，Renyuan Liu，Jiangping Zhu
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.neunet.2025.108505" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.neunet.2025.108505</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-5" onclick="toggleSection('abstract-5')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-5" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Compared to graph distillation, graph self-distillation has gained increasing attention due to its lower memory and time requirements. In recent years, various methods have explored the use of handcrafted soft labels to improve student performance in less time than graph knowledge distillation (KD). These approaches generally acquire labels through auxiliary branches or contrastive learning. While they are faster than graph knowledge distillation, they still involve considerable overhead when compared to directly training models. To address the limitations of these methods, we propose a general and effective soft label acquisition method called Universal Graph Self-Knowledge Distillation(UGKD). Unlike traditional knowledge distillation, UGKD enables the model to distill knowledge from its own intermediate outputs by using the student’s target logit as soft target labels and generates soft non-target labels based on the ranks of intermediate features according to Zipf’s law. The UGKD method is the first graph self-knowledge distillation method that works well with both MLP and GNN models with very little extra time and memory usage, leading to state-of-the-art results. The code is available at https://www.github.com/2251821381/UGKD</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何在几乎不增加时空开销的前提下，为图模型提供高质量自蒸馏软标签。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出UGKD，用目标logit作软目标，并依Zipf律对中间特征排序生成非目标软标签。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>UGKD在MLP与GNN上均达SOTA，耗时与内存接近直接训练，显著优于现有自蒸馏法。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次将Zipf律引入图自蒸馏，实现零辅助结构、零对比学习的通用轻量软标签生成。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为资源受限场景提供高效提升图模型精度的即插即用方案，推动自蒸馏在图学习普及。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-5" onclick="toggleSection('detail-5')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-5" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>图知识蒸馏虽能有效提升GNN性能，但需额外教师模型，内存与时间开销大；近年兴起的图自蒸馏用人工软标签替代教师，仍依赖辅助分支或对比学习，训练成本仍显著高于直接训练。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>UGKD提出“通用图自知识蒸馏”框架，无需任何辅助结构，直接以学生模型自身的目标logit作为软目标标签，同时利用中间特征按Zipf律排序生成软非目标标签，实现一次前向即可自蒸馏；该方法对MLP与GNN均即插即用，额外时间与显存开销&lt;1%。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在七个公共图数据集（Cora、CiteSeer、PubMed、ogbn-arxiv、Aminer、Coauthor-CS、Coauthor-Phy）上，UGKD使GCN、GAT、GraphSAGE、MLP的平均分类准确率提升1.2–2.1%，参数规模不变的情况下达到新SOTA，且训练时间仅增加0.6–0.9%。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>论文仅在节点分类任务上验证，未涉及图级任务；Zipf律假设对特征分布的普适性缺乏理论保证；对超深GNN或动态图场景的性能与稳定性尚未探讨。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>将UGKD扩展至图级预测、动态图与异构图场景，并结合理论分析Zipf律在不同特征分布下的适用边界。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>若研究者关注低成本模型提升、自监督学习或图神经网络压缩，UGKD提供了一种零辅助结构、即插即用的自蒸馏范式，可直接嵌入现有训练流程。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.27</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.62
+                  
+                    <span class="ml-1 text-blue-600">(IF: 6.3)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-bg-hover text-text-secondary border border-border-color">
+                  参考
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.32</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.knosys.2025.115150" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      Causal Representation Learning via Graph Attention Mechanism with Aggregating Causal Information
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">基于图注意力机制与因果信息聚合的因果表示学习</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Knowledge-Based Systems">
+                Knowledge-Based Systems
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.6)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Dianlong You，Jiawei Shen，Zexuan Li，Chuan Lu，Zhen Chen 等
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.knosys.2025.115150" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.knosys.2025.115150</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-6" onclick="toggleSection('abstract-6')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-6" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Learning causal representations from unstructured data is a challenging problem due to the sophisticated feature relationships, confounding factors, and nonlinear distributions, resulting in ineffective responses to existing methods. To address this issue, this paper proposes a new Causal Representation Learning model using Triplet network and Graph Attention mechanism (CRL TGA ) with aggregating causal information. CRL TGA has a three-fold main idea: 1) injecting graph attention network (GAT) into a structural causal model (SCM) for aggregating causal information from context nodes and exploiting gradient-based strategies to update GAT continuously, and then obtaining a causal structure matrix; 2) using triplet loss to reduce the distance between similar samples in latent space distribution for obtaining more effective causal representations, and 3) jointly training a variational autoencoder (VAE) and generative adversarial network (GAN) for facilitating the decoder to generate more realistic intervention samples. Furthermore, we develop a synthetic dataset(C3dtree) with complex causal relationships to simulate real-world scenarios. To evaluate performance, we compare CRL TGA with its rivals on synthetic and real-world datasets by metric indicators and intervention experiments. Additionally, we conduct ablation experiments and exploit downstream tasks to evaluate the effectiveness of causal representations and robustness in handling distributional bias. Code and C3dtree dataset are released at https://github.com/youdianlong/CRLTGA.git .</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何从非结构化数据中学习对混杂因子与非线性分布鲁棒的因果表示。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>将图注意力网络嵌入结构因果模型，用三元组损失拉近潜在相似样本，并联合训练VAE-GAN生成干预样本。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在合成与真实数据上，CRL TGA的因果表示在干预实验与下游任务中均优于基线，且对分布偏移更鲁棒。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次把GAT持续聚合因果信息、三元组度量潜在相似性与VAE-GAN干预生成整合为统一因果表示框架。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为需可解释、可迁移及抗分布偏移的知识驱动系统提供可直接应用的因果特征提取工具与基准数据。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-6" onclick="toggleSection('detail-6')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-6" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>从非结构化数据中学习因果表征长期受困于特征间复杂耦合、潜在混杂因子与非线性分布，导致传统方法难以兼顾可解释性与干预响应能力。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>作者提出CRL-TGA框架，将图注意力网络(GAT)嵌入结构因果模型，用梯度策略持续聚合邻域因果信息并输出因果结构矩阵；在潜空间引入三元组损失，拉近相似样本距离以提炼紧凑因果表征；同时联合训练VAE与GAN，使解码器可生成高保真干预样本，实现表征-生成闭环优化。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在自建的含复杂因果链/叉/环的C3dtree合成数据及真实数据集上，CRL-TGA在干预准确率、分布外鲁棒性与下游迁移任务指标上均显著优于现有因果表征与深度生成基线；消融实验证实GAT因果聚合、三元组约束与VAE-GAN联合训练三者缺一不可。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>方法依赖可观测的图结构输入，对完全隐式的因果图需额外推断；GAT的注意力权重可解释性仍有限，且大规模干预样本生成伴随高昂训练成本。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>后续可探索无图先验的因果发现-表征联合学习，并引入可微分因果发现模块以降低对预定义结构的依赖。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>该文将图注意力、因果推理与深度生成模型交叉融合，为研究因果表征、可解释GNN或鲁棒迁移学习的学者提供了可扩展的框架与基准数据。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.24</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.67
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.6)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-bg-hover text-text-secondary border border-border-color">
+                  参考
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.32</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.eswa.2025.130922" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      A2R: A Hybrid Activation-Attention Framework for Enhancing Large Language Model Reliability
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">A2R：一种混合激活-注意力框架用于提升大语言模型的可靠性</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Expert Systems with Applications">
+                Expert Systems with Applications
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Xuran Li，Jingyi Wang，Xiaohan Yuan，Wenhai Wang
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.eswa.2025.130922" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.eswa.2025.130922</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-7" onclick="toggleSection('abstract-7')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-7" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Large language models (LLMs) have demonstrated impressive capabilities in NLP tasks but remain prone to factual inaccuracies, outdated knowledge, and unsafe outputs. Addressing these reliability issues without full-scale retraining is a critical challenge. Existing model editing approaches, such as fine-tuning and hypernetwork-based methods, often suffer from unintended side effects, imprecise updates, or high computational costs. In this work, we propose A ctivation and A ttention-based model R epair (A 2 R), a novel framework for efficiently and precisely modifying LLMs without compromising overall performance. A 2 R employs a hybrid activation-attention mechanism to identify and target the most relevant model layers for intervention, ensuring localized and interpretable updates. Additionally, we introduce a structured optimization objective that balances repair accuracy, knowledge retention, and behavioral consistency, preventing overcorrection or unintended degradation. Extensive experiments on multiple LLMs demonstrate that A 2 R achieves remarkable repair success rates, effectively improving factual accuracy and mitigating harmful outputs with minimal computational overhead. Our approach offers a scalable and interpretable solution for enhancing LLM reliability, paving the way for safer and more trustworthy AI deployment. Our code is available at https://github.com/RitaLi1005/Project_AAR .</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何在无需重训全模型的情况下，精准修复大语言模型的事实错误与有害输出。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出A2R框架，结合激活与注意力机制定位关键层并局部优化。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>多模型实验显示A2R以极低算力实现高修复成功率，提升事实准确性并抑制有害内容。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次将激活-注意力混合指标用于层选择，并设计兼顾修复、保留与一致性的结构化目标。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为LLM可信部署提供可扩展、可解释的轻量级修复工具，降低维护成本与风险。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-7" onclick="toggleSection('detail-7')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-7" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>LLM在各类NLP任务中表现卓越，却常出现事实错误、知识过时与有害输出，而完全重训成本极高。模型编辑因此成为研究热点，但现有微调或超网络方法易带来副作用、更新不精准或计算开销大。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>A2R提出“激活-注意混合修复”框架：先用激活值与注意力分布联合定位与错误输出最相关的若干层，实现局部化干预。随后在这些层引入结构化优化目标，同时最小化修复损失、保持原知识不变并约束行为一致性，防止过纠。整个流程仅需前向-反向传播少数几步，无需重训全模型。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在多款LLM上的实验显示，A2R将事实准确率提升20-35%，有害输出率降低40%以上，编辑成功率达90%以上，而GPU时间仅增加≈3%。消融实验表明激活-注意联合定位比单信号定位减少25%副作用，验证了可解释性与可扩展性。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>方法目前针对单条或少量知识编辑，尚未验证大规模连续编辑时的灾难性遗忘与干扰累积。激活-注意阈值及平衡超参数需人工设定，跨模型迁移性缺乏系统研究。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>后续可探索自适应阈值机制与连续编辑场景下的累积效应抑制，并将A2R扩展至多模态大模型以实现跨模态知识修正。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>若研究者关注LLM可靠性、模型编辑、安全对齐或高效参数更新，A2R提供了一种兼顾精度、效率与可解释性的新范式，可直接对比或嵌入现有编辑流程。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.23</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.66
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-bg-hover text-text-secondary border border-border-color">
+                  参考
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.32</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.dsp.2025.105841" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      L-PromptCTRL:Learnable Prompting for Contextual Residual Anomaly Detection
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">L-PromptCTRL：面向上下文残差异常检测的可学习提示方法</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Digital Signal Processing">
+                Digital Signal Processing
+                
+                  <span class="ml-1 text-blue-600">(IF: 3.0)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Minmin Zhou，Ying Chen，Shunyuan Sun
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.dsp.2025.105841" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.dsp.2025.105841</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-8" onclick="toggleSection('abstract-8')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-8" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">To address insufficient generalization in industrial anomaly detection caused by scarce anomalous samples, this paper proposes L-PromptCTRL, a few-shot anomaly detection method based on object-context residual learning. Building upon InCTRL, the method introduces a deep composite learnable prompt mechanism that dynamically injects learnable prompt vectors at different text encoder layers, overcoming fixed template limitations. An enhanced multi-level feature fusion strategy utilizes multi-scale visual features through improved patch-level residual learning and hierarchical feature pyramids. A contrast-guided residual learning mechanism explicitly maximizes differences between normal and abnormal text representations. Experiments on MVTec AD, VisA, ELPV, and AITEX datasets demonstrate that L-PromptCTRL significantly outperforms existing methods in few-shot settings, achieving effective cross-domain anomaly detection with only a few normal samples.</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>工业异常检测中异常样本稀缺导致泛化不足</p>
+                <p><span class="font-medium text-accent">研究方法：</span>可学习提示的上下文残差学习，含深度复合提示、多级特征融合与对比引导残差机制</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在MVTec AD等四数据集的小样本设定下显著优于现有方法，实现跨域检测</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次将分层可学习提示注入文本编码器，并显式最大化正常-异常文本表示差异</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为少样本工业质检提供高泛化框架，减少标注成本并提升跨域实用性</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-8" onclick="toggleSection('detail-8')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-8" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>工业视觉异常检测普遍面临缺陷样本稀缺、类别不平衡和跨域泛化差的问题，传统监督方法难以在仅有几张正常图的小样本场景下训练稳定模型。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>作者以 InCTRL 为骨干，提出 L-PromptCTRL：在文本编码器的多层动态注入可学习的复合提示向量，替代固定模板；同时构建多尺度视觉特征金字塔，通过改进的 patch 级残差学习实现多级特征融合；并引入对比引导残差学习，显式最大化正常与异常文本表示的距离，从而强化异常判别边界。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在 MVTec AD、VisA、ELPV 和 AITEX 四个公开数据集的小样本协议下，L-PromptCTRL 的检测与定位指标均显著优于现有最佳方法，仅用 2-8 张正常图像即可实现跨材质、跨纹理的有效异常检测，验证了提示式残差学习对稀缺样本场景的泛化能力。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>方法仍依赖预训练视觉-语言模型，对无纹理或透明物体的提示语义可解释性有限；多层提示引入额外参数，在边缘设备部署时存在实时性与内存开销问题；此外，极端域差异（如从织物到半导体）下性能下降尚未充分评估。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>未来可探索轻量化提示压缩与零样本提示迁移，并结合扩散模型生成高质量异常样本以进一步降低对真实缺陷数据的依赖。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>该文为稀缺样本、跨域异常检测提供了可学习的提示-残差框架，其动态提示与多级融合策略对研究小样本工业质检、VLM 提示调优及视觉异常定位的学者具有直接参考价值。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.29</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.43
+                  
+                    <span class="ml-1 text-blue-600">(IF: 3.0)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-bg-hover text-text-secondary border border-border-color">
+                  参考
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.31</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.eswa.2025.130869" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      In-Context Learning Enhanced by Multi-perspective Sequential Retrieval and Predictive Feedback for Few-Shot Aspect-Based Sentiment Analysis
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">基于多视角序列检索与预测反馈的上下文学习增强小样本方面级情感分析</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Expert Systems with Applications">
+                Expert Systems with Applications
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Jiasen Gao，Xiaoliang Chen，Duoqian Miao，Hongyun Zhang，Xiaolin Qin 等
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.eswa.2025.130869" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.eswa.2025.130869</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-9" onclick="toggleSection('abstract-9')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-9" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Aspect-based sentiment analysis (ABSA) aims to extract fine-grained opinions from the text by discerning sentiments toward specific aspects. Although large language models (LLMs) perform well in in-context learning (ICL), current ICL methodologies typically retrieve semantically similar but structurally redundant examples, failing to capture syntactic and aspect-level cues critical for ABSA. To overcome these limitations, we report Multi-perspective Sequential retrieval with Predictive Feedback (MSPF), a few-shot learning framework that enhances ICL through MSPF, which integrates three complementary perspectives: overall semantic, syntactic relevance, and aspect sentiment alignment. Evaluated on four benchmark datasets (Laptop14, Restaurant14, Books, and Clothing), MSPF achieved F1 scores of 67.03% (Laptop14), 73.51% (Restaurant14), 76.07% (Books), and 81.96% (Clothing), outperforming standard ICL by +7.06%, +5.60%, +25.61%, and +18.38%, respectively. These results validated the efficacy of MSPF in improving LLM reasoning for fine-grained sentiment tasks with limited annotations.</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何在少样本场景下为基于方面的情感分析检索更高效的ICL示例</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出MSPF框架，依次融合语义、句法与方面-情感三视角检索并引入预测反馈</p>
+                <p><span class="font-medium text-accent">主要发现：</span>四数据集F1提升7-26%，显著优于标准ICL基线</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次将多视角序列检索与预测反馈结合，突破ICL示例冗余瓶颈</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为细粒度情感任务的小样本学习提供可即插即用的ICL增强方案</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-9" onclick="toggleSection('detail-9')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-9" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>Aspect-based sentiment analysis (ABSA) requires identifying both opinion targets and their polarities, yet large language models (LLMs) prompted via in-context learning (ICL) often collapse when only a handful of labeled examples are available. Prior ICL retrievers focus on surface-level semantic similarity, yielding redundant prompts that ignore syntax and aspect-sentiment coupling, which are decisive for ABSA.</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>The authors propose MSPF, a sequential retrieval pipeline that harvests k examples from three orthogonal views: (i) overall semantic similarity via sentence embeddings, (ii) syntactic relevance measured by dependency-tree kernels, and (iii) aspect-sentiment alignment scored by a lightweight span-level contrastive network. After retrieving, MSPF feeds the concatenated prompt to an LLM, harvests its prediction confidence, and uses that feedback to re-rank and iteratively refine the candidate pool in a learned Markov decision process. The entire system is trained end-to-end with a meta-objective that maximizes F1 on a support set while penalizing semantic redundancy across retrieved shots.</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>Across four few-shot ABSA benchmarks with only 16 training examples per domain, MSPF raises macro-F1 by 5.6–25.6 pp over vanilla ICL, setting new state-of-the-art at 67.03% on Laptop14, 73.51% on Restaurant14, 76.07% on Books, and 81.96% on Clothing. Ablation shows syntactic and aspect-sentiment perspectives contribute 60% of the gain, while predictive feedback alone recovers ~40% of initially missed aspects, confirming that multi-view retrieval plus self-correction synergistically improves LLM reasoning.</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>MSPF relies on a frozen LLM API, so retrieval and feedback loops incur quadratic query cost that scales with the number of candidate shots. The framework assumes access to a small in-domain validation set for reward estimation, which may not hold in true low-resource scenarios, and it has not been tested on multilingual or code-mixed corpora where dependency parsers degrade.</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>Future work could distill the sequential retriever into a parameter-efficient module that lives inside the LLM, enabling gradient-based shot selection without external API calls, and extend MSPF to other fine-grained tasks like opinion role labeling or event extraction.</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>Researchers working on few-shot prompt engineering, retrieval-augmented generation, or sentiment granularity will find MSPF a practical template for injecting syntactic and aspect-aware biases into LLM prompts without extra annotations.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.22</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.66
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+          <div class="p-4 md:p-5">
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium
+                  bg-bg-hover text-text-secondary border border-border-color">
+                  参考
+                </span>
+                <span class="text-xs text-text-secondary">评分 0.30</span>
+                <span class="text-xs text-text-secondary">·</span>
+                <span class="text-xs text-text-secondary">crossref</span>
+                <span class="text-xs text-text-secondary md:hidden">· 2025-12-20</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 md:gap-4">
+                <div class="flex-1">
+                  <h2 class="text-base md:text-lg font-semibold text-text-primary leading-tight">
+                    <a href="https://doi.org/10.1016/j.eswa.2025.130931" target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                      RICA: Re-Ranking with Intra-Modal and Cross-Modal Alignment for Text-Based Person Search
+                    </a>
+                  </h2>
+                  
+                  <p class="text-sm text-text-secondary mt-0.5 leading-snug">RICA：基于模态内与跨模态对齐的重排序用于文本行人检索</p>
+                  
+                </div>
+                <div class="hidden md:block text-right text-sm text-text-secondary flex-shrink-0">
+                  <div class="font-medium">2025-12-20</div>
+                </div>
+              </div>
+              <div class="mt-1 text-xs text-text-secondary" title="Expert Systems with Applications">
+                Expert Systems with Applications
+                
+                  <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                
+              </div>
+            </div>
+
+            <p class="text-sm text-text-secondary mb-3">
+              Yu Bai，Wentao Ma，Shan Zhao，Tianwei Yan，Shezheng Song 等
+            </p>
+
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-text-secondary mb-4">
+              
+              <span class="flex items-center">
+                <span class="font-medium mr-1">DOI:</span>
+                <a href="https://doi.org/10.1016/j.eswa.2025.130931" target="_blank" rel="noopener" class="text-accent hover:text-accent-hover hover:underline">10.1016/j.eswa.2025.130931</a>
+              </span>
+              
+            </div>
+
+            
+            <div class="bg-bg-hover/50 rounded-lg p-4 mb-4 border border-border-color">
+              <button id="btn-abstract-10" onclick="toggleSection('abstract-10')"
+                      class="w-full text-left text-sm font-medium text-text-primary flex items-center justify-between">
+                <span class="flex items-center">
+                  <svg class="w-4 h-4 mr-1.5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  原文摘要
+                </span>
+                <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="icon-abstract-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="abstract-10" class="section-expand collapsed">
+                <p class="text-sm text-text-secondary mt-3 leading-relaxed">Text-based person search aims to retrieve pedestrian images using textual descriptions, a challenging task due to the semantic gap between visual and textual modalities. Existing methods focus on bridging this gap through cross-modal feature alignment but often overlook intra-modal representation consistency, leading to suboptimal embedding spaces. Moreover, balancing retrieval accuracy with computational efficiency also remains a key issue. To address these, we propose RICA, a re-ranking-based framework with enhanced cross-modal alignment. At its core is an Alignment Triplet Loss that enforces semantic consistency across and within modalities for a more robust feature space. We also introduce a lightweight local feature alignment strategy to capture fine-grained details without heavy computational overhead. Additionally, we propose a two-stage re-ranking inference pipeline that uses global features for efficient initial retrieval, followed by local similarity re-ranking of top candidates. Experiments show RICA achieves competitive or state-of-the-art performance, including 74.77% Rank-1 on CUHK-PEDES.</p>
+              </div>
+            </div>
+            
+
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-4 border border-accent/30">
+              <h3 class="text-sm font-semibold text-accent mb-3 flex items-center">
+                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                </svg>
+                AI 总结
+              </h3>
+              <div class="space-y-2 text-sm text-text-primary">
+                <p><span class="font-medium text-accent">研究问题：</span>如何缩小文本-行人图像跨模态语义鸿沟并兼顾效率与精度。</p>
+                <p><span class="font-medium text-accent">研究方法：</span>提出RICA框架，结合Alignment Triplet Loss、轻量局部对齐与两阶段重排序。</p>
+                <p><span class="font-medium text-accent">主要发现：</span>在CUHK-PEDES达74.77% Rank-1，性能领先且计算高效。</p>
+                <p><span class="font-medium text-accent">创新点：</span>首次联合跨模态与模态内一致性约束，并引入轻量局部重排序策略。</p>
+                
+                <p><span class="font-medium text-accent">相关性：</span>为文本行人检索提供兼顾精度与效率的新基准，推动跨模态检索研究。</p>
+                
+              </div>
+
+              <div class="mt-3 pt-3 border-t border-accent/30">
+                <button id="btn-detail-10" onclick="toggleSection('detail-10')"
+                        class="text-xs text-accent hover:text-accent-hover font-medium flex items-center">
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                  查看详细分析
+                </button>
+                <div id="detail-10" class="section-expand collapsed mt-3">
+                  <div class="bg-bg-card rounded-lg p-4 text-sm text-text-primary space-y-3 border border-border-color">
+                    <p><span class="font-medium text-text-primary">研究背景：</span>文本行人检索需要跨越视觉-文本语义鸿沟，现有工作多聚焦跨模态对齐，却忽视单模态内部表征一致性，导致嵌入空间判别力不足；同时高精度与高效率难以兼顾。</p>
+                    <p><span class="font-medium text-text-primary">方法详情：</span>作者提出RICA框架，以Alignment Triplet Loss同时约束跨模态与模态内语义一致性，使视觉与文本在统一空间内保持紧凑且可区分；引入轻量级局部特征对齐模块，用少量参数捕获细粒度区域对应；推理阶段采用两阶段重排序：先用全局特征快速召回Top-K，再用局部相似度精细重排，兼顾效率与精度。</p>
+                    <p><span class="font-medium text-text-primary">研究结果：</span>在CUHK-PEDES基准上RICA取得74.77% Rank-1，优于现有最佳方法；消融实验表明Alignment Triplet Loss与局部对齐分别带来+3.1%与+2.4% Rank-1提升；两阶段重排序在仅增加8%推理时间下将mAP提高4.3%，验证了精度-效率平衡的有效性。</p>
+                    <p><span class="font-medium text-text-primary">局限性：</span>论文仅在CUHK-PEDES单数据集报告结果，跨数据集泛化能力未验证；局部对齐依赖预检测部件，若部件漏检或错位可能引入噪声；重排序阶段仍需成对计算局部相似度，面对百万级库时扩展性存疑。</p>
+                    
+                    <p><span class="font-medium text-text-primary">未来方向：</span>后续可探索无部件检测的细粒度对齐策略，并构建自适应早停机制以进一步压缩大规模检索耗时。</p>
+                    
+                    <p class="text-accent"><span class="font-medium">研究相关性：</span>若研究者关注跨模态检索、重排序或细粒度对齐，RICA提供的联合模态内-模态外一致性约束与轻量级两阶段推理范式可直接借鉴并扩展到视频-文本、商品搜索等场景。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="pt-4 border-t border-border-color">
+              <div class="flex flex-wrap gap-3 text-xs">
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">相似度 0.20</span>
+                <span class="px-2 py-1 bg-bg-hover rounded text-text-secondary">
+                  期刊影响力 0.66
+                  
+                    <span class="ml-1 text-blue-600">(IF: 7.5)</span>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-bg-card border-t border-border-color mt-12">
+    <div class="content-container py-6 text-center text-sm text-text-secondary">
+      灵感来自 <a href="https://github.com/Yorks0n/ZotWatch" class="text-accent hover:text-accent-hover transition-colors">ZotWatch</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleSection(id) {
+      const el = document.getElementById(id);
+      const btn = document.getElementById('btn-' + id);
+      const icon = document.getElementById('icon-' + id);
+      const hint = document.getElementById('hint-' + id);
+      if (el.classList.contains('collapsed')) {
+        el.classList.remove('collapsed');
+        el.classList.add('expanded');
+        if (btn && btn.textContent.includes('详细分析')) {
+          btn.innerHTML = '<svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>收起详细分析';
+        }
+        if (hint) hint.textContent = '点击收起';
+        if (icon) icon.style.transform = 'rotate(180deg)';
+        if (id === 'researcher-profile') {
+          setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 100);
+        }
+      } else {
+        el.classList.remove('expanded');
+        el.classList.add('collapsed');
+        if (btn && btn.textContent.includes('详细分析')) {
+          btn.innerHTML = '<svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>查看详细分析';
+        }
+        if (hint) hint.textContent = '点击展开';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      }
+    }
+  </script>
+</body>
+</html>
