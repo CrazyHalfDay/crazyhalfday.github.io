@@ -283,8 +283,8 @@
         <span class="text-sm font-medium text-text-secondary w-20 shrink-0">📋 分组:</span>
         <div class="flex flex-wrap gap-1.5">
           <a href="archive.html" class="pill ">日期</a>
-          <a href="archive-year.html" class="pill ">年份</a>
-          <a href="archive-venue.html" class="pill active">期刊</a>
+          <a href="archive-year.html" class="pill active">年份</a>
+          <a href="archive-venue.html" class="pill ">期刊</a>
           <a href="archive-source.html" class="pill ">来源</a>
           <a href="archive-label.html" class="pill ">标签</a>
           <a href="archive-domain.html" class="pill ">领域</a>
@@ -438,7 +438,7 @@
       'use strict';
 
       const CONFIG = { pageSize: 30, debounceDelay: 200, searchMinLength: 2 };
-      const dataUrl = "archive-venue-data.json";
+      const dataUrl = "archive-year-data.json";
 
       // Filter state: single-select per category
       const filters = { month: '', label: '', domain: '', source: '', author: '', sort: 'newest' };
