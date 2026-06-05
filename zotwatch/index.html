@@ -38,6 +38,9 @@
     @media (min-width: 640px) { .cluster-graph-container { height: 320px; } }
     @media (min-width: 768px) { .cluster-graph-container { height: 350px; } }
     #cluster-graph svg { overflow: visible; }
+    .fav-btn.faved { color: #f59e0b; }
+    .fav-btn.faved .fav-icon { fill: #f59e0b; }
+    #fav-only-btn.active { color: #f59e0b; border-color: #f59e0b; background: rgba(245,158,11,0.08); }
   </style>
 </head>
 <body class="bg-bg-primary min-h-screen text-text-primary">
@@ -46,7 +49,7 @@
       <h1 class="text-xl md:text-2xl font-bold text-text-primary">ZotWatch 文献推荐</h1>
       <p class="text-xs md:text-sm text-text-secondary mt-1">
         共 53 篇论文 ·
-        生成于 2026-06-05 13:02 Asia/Shanghai
+        生成于 2026-06-05 17:33 Asia/Shanghai
       </p>
     </div>
   </header>
@@ -751,7 +754,7 @@
           
         ];
 
-        const links = [{"source": 24, "target": 30, "value": 0.8678195476531982}, {"source": 13, "target": 30, "value": 0.8405067920684814}, {"source": 18, "target": 20, "value": 0.7980546951293945}, {"source": 26, "target": 27, "value": 0.8158314228057861}, {"source": 4, "target": 6, "value": 0.8457943797111511}, {"source": 4, "target": 12, "value": 0.8893673419952393}, {"source": 18, "target": 32, "value": 0.6697560548782349}, {"source": 14, "target": 19, "value": 0.889996349811554}, {"source": 22, "target": 32, "value": 0.6718937158584595}, {"source": 8, "target": 12, "value": 0.9063311219215393}, {"source": 17, "target": 18, "value": 0.8714137077331543}, {"source": 12, "target": 34, "value": 0.7631369233131409}, {"source": 1, "target": 3, "value": 0.8475427031517029}, {"source": 9, "target": 20, "value": 0.5954502820968628}, {"source": 11, "target": 23, "value": 0.8767197728157043}, {"source": 27, "target": 31, "value": 0.7787889838218689}, {"source": 0, "target": 20, "value": 0.50149005651474}, {"source": 10, "target": 24, "value": 0.8524450659751892}, {"source": 11, "target": 29, "value": 0.8714974522590637}, {"source": 25, "target": 28, "value": 0.819952130317688}, {"source": 6, "target": 14, "value": 0.9011708498001099}, {"source": 11, "target": 33, "value": 0.7991607189178467}, {"source": 18, "target": 28, "value": 0.8662424087524414}, {"source": 4, "target": 8, "value": 0.8833556771278381}, {"source": 7, "target": 31, "value": 0.7605849504470825}, {"source": 22, "target": 25, "value": 0.8734087944030762}, {"source": 3, "target": 15, "value": 0.7804399132728577}, {"source": 3, "target": 21, "value": 0.8541244864463806}, {"source": 22, "target": 28, "value": 0.865959107875824}, {"source": 5, "target": 21, "value": 0.8483725786209106}, {"source": 1, "target": 2, "value": 0.8860380053520203}, {"source": 27, "target": 30, "value": 0.8015592694282532}, {"source": 13, "target": 16, "value": 0.8599966168403625}, {"source": 1, "target": 20, "value": 0.8370689153671265}, {"source": 13, "target": 19, "value": 0.885962963104248}, {"source": 16, "target": 24, "value": 0.8524624705314636}, {"source": 4, "target": 7, "value": 0.8957014083862305}, {"source": 3, "target": 5, "value": 0.8879415392875671}, {"source": 24, "target": 34, "value": 0.7398678660392761}, {"source": 29, "target": 33, "value": 0.8033450841903687}, {"source": 12, "target": 26, "value": 0.8111222982406616}, {"source": 5, "target": 14, "value": 0.8495303392410278}, {"source": 23, "target": 29, "value": 0.8272048234939575}, {"source": 0, "target": 9, "value": 0.6850217580795288}, {"source": 10, "target": 13, "value": 0.8401963710784912}, {"source": 17, "target": 28, "value": 0.8819524645805359}, {"source": 11, "target": 15, "value": 0.8122410774230957}, {"source": 2, "target": 21, "value": 0.8229478597640991}, {"source": 7, "target": 8, "value": 0.8712392449378967}, {"source": 13, "target": 24, "value": 0.8959002494812012}];
+        const links = [{"source": 24, "target": 30, "value": 0.8678194284439087}, {"source": 13, "target": 30, "value": 0.840506911277771}, {"source": 18, "target": 20, "value": 0.7980547547340393}, {"source": 26, "target": 27, "value": 0.8158312439918518}, {"source": 4, "target": 6, "value": 0.8457942008972168}, {"source": 4, "target": 12, "value": 0.8893672227859497}, {"source": 18, "target": 32, "value": 0.6697561144828796}, {"source": 14, "target": 19, "value": 0.8899965286254883}, {"source": 22, "target": 32, "value": 0.6718937754631042}, {"source": 8, "target": 12, "value": 0.9063315391540527}, {"source": 17, "target": 18, "value": 0.8714139461517334}, {"source": 12, "target": 34, "value": 0.7631369829177856}, {"source": 1, "target": 3, "value": 0.8475425839424133}, {"source": 9, "target": 20, "value": 0.5954502820968628}, {"source": 11, "target": 23, "value": 0.8767199516296387}, {"source": 27, "target": 31, "value": 0.7787891626358032}, {"source": 0, "target": 20, "value": 0.5014901161193848}, {"source": 10, "target": 24, "value": 0.852445125579834}, {"source": 11, "target": 29, "value": 0.871497631072998}, {"source": 25, "target": 28, "value": 0.8199520111083984}, {"source": 6, "target": 14, "value": 0.9011708498001099}, {"source": 11, "target": 33, "value": 0.7991606593132019}, {"source": 18, "target": 28, "value": 0.8662424087524414}, {"source": 4, "target": 8, "value": 0.8833556175231934}, {"source": 7, "target": 31, "value": 0.760584831237793}, {"source": 22, "target": 25, "value": 0.873408854007721}, {"source": 3, "target": 15, "value": 0.7804399132728577}, {"source": 3, "target": 21, "value": 0.8541244864463806}, {"source": 22, "target": 28, "value": 0.8659590482711792}, {"source": 5, "target": 21, "value": 0.8483725786209106}, {"source": 1, "target": 2, "value": 0.886038064956665}, {"source": 27, "target": 30, "value": 0.8015592098236084}, {"source": 13, "target": 16, "value": 0.8599963188171387}, {"source": 1, "target": 20, "value": 0.8370689153671265}, {"source": 13, "target": 19, "value": 0.885962724685669}, {"source": 16, "target": 24, "value": 0.8524623513221741}, {"source": 4, "target": 7, "value": 0.8957011699676514}, {"source": 3, "target": 5, "value": 0.8879413604736328}, {"source": 24, "target": 34, "value": 0.7398678660392761}, {"source": 29, "target": 33, "value": 0.8033449053764343}, {"source": 12, "target": 26, "value": 0.8111222386360168}, {"source": 5, "target": 14, "value": 0.8495305180549622}, {"source": 23, "target": 29, "value": 0.8272050619125366}, {"source": 0, "target": 9, "value": 0.6850218772888184}, {"source": 10, "target": 13, "value": 0.8401966094970703}, {"source": 17, "target": 28, "value": 0.8819522857666016}, {"source": 11, "target": 15, "value": 0.8122411966323853}, {"source": 2, "target": 21, "value": 0.8229478597640991}, {"source": 7, "target": 8, "value": 0.871239185333252}, {"source": 13, "target": 24, "value": 0.8959000110626221}];
 
         const academicColors = [
           '#4E79A7', '#F28E2B', '#E15759', '#76B7B2', '#59A14F',
@@ -3213,10 +3216,15 @@
                 class="px-2.5 py-1 rounded border border-accent bg-accent/10 text-accent font-medium">按相似度</button>
         <button id="sort-similarity-date" onclick="sortSimilarityWorks('date')"
                 class="px-2.5 py-1 rounded border border-border-color text-text-secondary hover:text-accent transition-colors">按日期</button>
+        
+        <span class="text-text-secondary ml-2">·</span>
+        <button id="fav-only-btn" onclick="toggleFavOnly(this)" data-on="0"
+                class="px-2.5 py-1 rounded border border-border-color text-text-secondary hover:text-amber-500 transition-colors">★ 只看收藏</button>
+        
       </div>
       <div id="similarity-list" class="space-y-4 md:space-y-5">
         
-        <article data-score="0.6759506310581092" data-date="2026-06-01" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.6759505832272241" data-date="2026-06-01" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -3229,6 +3237,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-01</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.lithos.2026.108656" data-identifier="10.1016/j.lithos.2026.108656"
+                        data-title="Zircon and apatite geochemical and isotopic constraints on magma fertility and magmatic evolution of porphyry CuAu mineralization at the Ting Darigun prospect, Chagai Belt, Western Pakistan" data-url="https://doi.org/10.1016/j.lithos.2026.108656"
+                        data-venue="Lithos" data-authors="Muhammad Hafeez; Xiaoyong Yang; Ahmed Shah; Zahra Abbasi; Salman Ahmed Khattak; Ibrar Khan"
+                        data-published="2026-06-01"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -3355,6 +3376,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-03</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.earscirev.2026.105559" data-identifier="10.1016/j.earscirev.2026.105559"
+                        data-title="Metal isotope composition of sulfide ore deposits" data-url="https://doi.org/10.1016/j.earscirev.2026.105559"
+                        data-venue="Earth-Science Reviews" data-authors="David Bajnai; Jochen Hoefs; Jens Gutzmer"
+                        data-published="2026-06-03"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -3467,7 +3501,7 @@
           </div>
         </article>
         
-        <article data-score="0.6540647472108767" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.654064778205292" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -3480,6 +3514,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-30</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.oregeorev.2026.107356" data-identifier="10.1016/j.oregeorev.2026.107356"
+                        data-title="Increased Cu fertility from Paleocene Lurige to Eocene Narigongma porphyries in the northern Yulong belt, eastern Tibet: Implication for coupled Plateau uplift and porphyry Cu mineralization" data-url="https://doi.org/10.1016/j.oregeorev.2026.107356"
+                        data-venue="Ore Geology Reviews" data-authors="Si-Lan Liu; Ming-Liang Huang; Xian-Wu Bi; Lei-Luo Xu; Jing-Jing Zhu; Wei Gao; Shan-Bin Bao; Lin-Bo Shang"
+                        data-published="2026-05-30"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -3593,7 +3640,7 @@
           </div>
         </article>
         
-        <article data-score="0.6445482801187332" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.6445483373882487" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -3606,6 +3653,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-29</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.lithos.2026.108644" data-identifier="10.1016/j.lithos.2026.108644"
+                        data-title="A Late Carboniferous slab window driving continental crustal growth and gold enrichment in the western Tajik South Tianshan, SW Altaids" data-url="https://doi.org/10.1016/j.lithos.2026.108644"
+                        data-venue="Lithos" data-authors="He Yang; Wenjiao Xiao; Miao Sang; Yunus Mamadjanov; Dzhovid Yogibekov; Jingmin Gan; Heng Li; Wei Zhao"
+                        data-published="2026-05-29"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -3719,7 +3779,7 @@
           </div>
         </article>
         
-        <article data-score="0.633519209891882" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.6335192671613974" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -3732,6 +3792,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-29</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.lithos.2026.108649" data-identifier="10.1016/j.lithos.2026.108649"
+                        data-title="Petrogenesis of Late Triassic high-Mg diorites and adakitic rocks in the East Kunlun Orogenic Belt and implications for Paleo-Tethyan evolution" data-url="https://doi.org/10.1016/j.lithos.2026.108649"
+                        data-venue="Lithos" data-authors="Yu Zhao; Yongmei Zhang; Xuexiang Gu; Yunhang Hu; Jianhua Han; Wei Chen; Hao Shi; Huadong Ma; Bingyu Zhu"
+                        data-published="2026-05-29"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -3841,7 +3914,7 @@
           </div>
         </article>
         
-        <article data-score="0.6301415670496968" data-date="2026-06-03" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.6301415276370468" data-date="2026-06-03" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -3854,6 +3927,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-03</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.chemgeo.2026.123554" data-identifier="10.1016/j.chemgeo.2026.123554"
+                        data-title="Calcium isotope composition of oceanic mantle peridotite and its fractionation during seafloor alteration" data-url="https://doi.org/10.1016/j.chemgeo.2026.123554"
+                        data-venue="Chemical Geology" data-authors="Yu-Han Qi; Jinting Kang; Xiao-Yun Nan; Ping-Ping Liu; Hao-Chen Duan; Zhaofeng Zhang; Fang Huang"
+                        data-published="2026-06-03"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -3966,7 +4052,7 @@
           </div>
         </article>
         
-        <article data-score="0.6120729477612838" data-date="2026-06-04" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.6120729871739339" data-date="2026-06-04" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -3979,6 +4065,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-04</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.chemgeo.2026.123556" data-identifier="10.1016/j.chemgeo.2026.123556"
+                        data-title="Abiotic formation of 13C-depleted graphitic carbon during serpentinization" data-url="https://doi.org/10.1016/j.chemgeo.2026.123556"
+                        data-venue="Chemical Geology" data-authors="Long Zhang; Qiang Wang; Haiyang Xian; Yiping Yang; Xing Ding; Luhua Xie"
+                        data-published="2026-06-04"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -4092,7 +4191,7 @@
           </div>
         </article>
         
-        <article data-score="0.6116977184038639" data-date="2026-06-02" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.6116977709540641" data-date="2026-06-02" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -4105,6 +4204,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-02</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1130/b38878.1" data-identifier="10.1130/b38878.1"
+                        data-title="Ages and geochemistry of Cretaceous igneous rocks record the transition from compression to extension in Fujian Province, South China" data-url="https://doi.org/10.1130/b38878.1"
+                        data-venue="Geological Society of America Bulletin" data-authors="Yuelan Kang; Yuruo Shi; J. Lawford Anderson; Huiyi Sun"
+                        data-published="2026-06-02"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -4218,7 +4330,7 @@
           </div>
         </article>
         
-        <article data-score="0.6012934094895862" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.6012933963520363" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -4231,6 +4343,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-29</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.lithos.2026.108643" data-identifier="10.1016/j.lithos.2026.108643"
+                        data-title="Zircon Hf-O Isotopes and geochemistry of TTG in the basement of the Bohai Bay Basin: Petrogenesis and implications for ∼3.1 Ga crustal growth in the North China Craton" data-url="https://doi.org/10.1016/j.lithos.2026.108643"
+                        data-venue="Lithos" data-authors="Tianyi Bian; Fanchao Meng; Andrew C. Kerr; Yonghua Liu"
+                        data-published="2026-05-29"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -4344,7 +4469,7 @@
           </div>
         </article>
         
-        <article data-score="0.5997331004115115" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5997330084486611" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -4357,6 +4482,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-29</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.lithos.2026.108650" data-identifier="10.1016/j.lithos.2026.108650"
+                        data-title="Crustal anatectic origin of the Tashan carbonatites in the southern margin of the North China Craton" data-url="https://doi.org/10.1016/j.lithos.2026.108650"
+                        data-venue="Lithos" data-authors="Mao-Xue Chen; Zhi-Hui Zha; Mei-Li Yang; Wei Zhang; Wei Terry Chen"
+                        data-published="2026-05-29"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -4470,7 +4608,7 @@
           </div>
         </article>
         
-        <article data-score="0.5996889997636028" data-date="2026-06-04" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5996889819067376" data-date="2026-06-04" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -4483,6 +4621,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-04</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1007/s00126-026-01467-y" data-identifier="10.1007/s00126-026-01467-y"
+                        data-title="Fluid pathways, geochemical zonation, and exploration of Carlin-type gold deposits, Youjiang Basin, China: insights from the Lannigou 3D geochemical system" data-url="https://doi.org/10.1007/s00126-026-01467-y"
+                        data-venue="Mineralium Deposita" data-authors="Shengtao Cao; Qinping Tan; Zhuojun Xie; Yong Xia; Jianzhong Liu; Yongzhang Zhou; Lujing Zheng; Yumin Lu; Kelin Zhou; Tingxian Ren"
+                        data-published="2026-06-04"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -4608,6 +4759,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-31</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.precamres.2026.108159" data-identifier="10.1016/j.precamres.2026.108159"
+                        data-title="Mesoarchean crustal growth in the Jiaobei Terrane, North China Craton: insights from plagioclase accumulation signatures in Laiyang TTG gneisses" data-url="https://doi.org/10.1016/j.precamres.2026.108159"
+                        data-venue="Precambrian Research" data-authors="Wen Zhang; Pinghua Liu; Lilin Du; Chonghui Yang; Guangyu Huang; Hua Xiang; Wanpeng Zhou; Jianlong Wang; Qianyu Li; Guochun Zhao"
+                        data-published="2026-05-31"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -4721,7 +4885,7 @@
           </div>
         </article>
         
-        <article data-score="0.5978873442117852" data-date="2026-06-04" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5978872738047198" data-date="2026-06-04" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -4734,6 +4898,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-04</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1130/b38836.1" data-identifier="10.1130/b38836.1"
+                        data-title="Late Paleozoic (ca. 300 Ma) eclogite belt on Hainan Island, South China, probably related to the Paleo-Pacific subduction system" data-url="https://doi.org/10.1130/b38836.1"
+                        data-venue="Geological Society of America Bulletin" data-authors="Xiaochun Liu; Juan Hu; Longyao Chen; Guanggao Zheng; Jianhua Li; Yuan Tian; Qiao Zhang; Qiuli Li"
+                        data-published="2026-06-04"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -4847,7 +5024,7 @@
           </div>
         </article>
         
-        <article data-score="0.5970067410513575" data-date="2026-06-04" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5970067194955726" data-date="2026-06-04" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -4860,6 +5037,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-04</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.chemgeo.2026.123555" data-identifier="10.1016/j.chemgeo.2026.123555"
+                        data-title="ẟ88/86Sr and 87Sr/86Sr variability in global carbonatites: Implications for the role of mineralogy, hydrothermal alteration, and crustal recycling" data-url="https://doi.org/10.1016/j.chemgeo.2026.123555"
+                        data-venue="Chemical Geology" data-authors="Soumyaroop Bhattacharya; Ramananda Chakrabarti"
+                        data-published="2026-06-04"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -4976,7 +5166,7 @@
           </div>
         </article>
         
-        <article data-score="0.5955618886307527" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5955618360805525" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -4989,6 +5179,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-29</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.lithos.2026.108646" data-identifier="10.1016/j.lithos.2026.108646"
+                        data-title="Temporal and spatial trends in mantle metasomatism and redox state beneath the Kimberley Craton (Northwest Australia)" data-url="https://doi.org/10.1016/j.lithos.2026.108646"
+                        data-venue="Lithos" data-authors="Z.J. Sudholz; A.L. Jaques; G.M. Yaxley; D.C. Hezel; C. Frigo"
+                        data-published="2026-05-29"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -5101,7 +5304,7 @@
           </div>
         </article>
         
-        <article data-score="0.5921934091943106" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5921933697816604" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -5114,6 +5317,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-30</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.epsl.2026.120125" data-identifier="10.1016/j.epsl.2026.120125"
+                        data-title="New determination of deep mantle sulfur isotopic composition from Galápagos submarine glasses" data-url="https://doi.org/10.1016/j.epsl.2026.120125"
+                        data-venue="Earth and Planetary Science Letters" data-authors="I. Genot; P. Cartigny; M.D. Kurz"
+                        data-published="2026-05-30"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -5227,7 +5443,7 @@
           </div>
         </article>
         
-        <article data-score="0.5870992892232209" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5870993154983208" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -5240,6 +5456,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-29</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.lithos.2026.108648" data-identifier="10.1016/j.lithos.2026.108648"
+                        data-title="Origin and lithium enrichment mechanism of the largest individual Murong pegmatite dyke in Asia: Revealed by phosphate mineral chemistry and SrNd isotopes" data-url="https://doi.org/10.1016/j.lithos.2026.108648"
+                        data-venue="Lithos" data-authors="Dabin Yue; Shilei Qiao; Xiaodong Chen; Fengli Liu; Bin Chen"
+                        data-published="2026-05-29"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -5353,7 +5582,7 @@
           </div>
         </article>
         
-        <article data-score="0.5848978580604041" data-date="2026-06-03" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.584897844922854" data-date="2026-06-03" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -5366,6 +5595,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-03</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.jseaes.2026.107186" data-identifier="10.1016/j.jseaes.2026.107186"
+                        data-title="Genesis of the Kuogeshaye gold deposit, Western Junggar, NW China: Evidence from fluid inclusions, stable isotopes, and mineralogy" data-url="https://doi.org/10.1016/j.jseaes.2026.107186"
+                        data-venue="Journal of Asian Earth Sciences" data-authors="Qihui Shi; Yongmei Zhang; Xuexiang Gu; Kun Wang; Shuo Gao; Fenghe Tian"
+                        data-published="2026-06-03"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -5479,7 +5721,7 @@
           </div>
         </article>
         
-        <article data-score="0.5836633974922794" data-date="2026-06-01" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5836633843547292" data-date="2026-06-01" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -5492,6 +5734,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-01</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.oregeorev.2026.107346" data-identifier="10.1016/j.oregeorev.2026.107346"
+                        data-title="Anomalous Cu enrichment at the 49.28°E hydrothermal field on the ultraslow-spreading Southwest Indian Ridge: evidence from sulfide mineralogy, geochemistry and sulfur isotopes" data-url="https://doi.org/10.1016/j.oregeorev.2026.107346"
+                        data-venue="Ore Geology Reviews" data-authors="Hang Ao; Shili Liao; Chunhui Tao; Wei Li; Kaiying Chen; Xianming Deng; Yuan Tian; Weifang Yang; Jin Liang"
+                        data-published="2026-06-01"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -5605,7 +5860,7 @@
           </div>
         </article>
         
-        <article data-score="0.5830089403383054" data-date="2026-06-02" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5830089666134056" data-date="2026-06-02" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -5618,6 +5873,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-02</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1130/g54872.1" data-identifier="10.1130/g54872.1"
+                        data-title="Independent evolution of Gondwana terranes along its northern margin during early Tethyan initiation" data-url="https://doi.org/10.1130/g54872.1"
+                        data-venue="Geology" data-authors="Mingjun Zheng; Jun Deng; Yongjun Lu; Huanchao Xu; Jiale Wang; Yingjie Wang; Xianyi Huang; Ke Miao; Xiang Sun"
+                        data-published="2026-06-02"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -5731,7 +5999,7 @@
           </div>
         </article>
         
-        <article data-score="0.5818735675518563" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5818736069645064" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -5744,6 +6012,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-30</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.precamres.2026.108160" data-identifier="10.1016/j.precamres.2026.108160"
+                        data-title="Proterozoic crustal evolution and tectonic affinity of the Beidahe microcontinent in the North Qilian Orogenic Belt: Constraints from zircon U–Pb ages and Lu–Hf isotopes" data-url="https://doi.org/10.1016/j.precamres.2026.108160"
+                        data-venue="Precambrian Research" data-authors="Chao Shi; Chao Wang; Yonghe Wang; Xiaokui Sun; Shuai Zhang; Joseph G. Meert; Ke Liu; Houqi Wang"
+                        data-published="2026-05-30"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -5856,7 +6137,7 @@
           </div>
         </article>
         
-        <article data-score="0.5789428597093956" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5789427808840955" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -5869,6 +6150,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-30</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.oregeorev.2026.107353" data-identifier="10.1016/j.oregeorev.2026.107353"
+                        data-title="Sn–Cu coexisting mechanism of Huaaobaote deposit, Inner Mongolia: Constraints from geochronology, mineralogy and geochemistry" data-url="https://doi.org/10.1016/j.oregeorev.2026.107353"
+                        data-venue="Ore Geology Reviews" data-authors="Yinlong Wang; Gongzheng Chen; Guang Wu; Jinfang Wang; Yuze Li; Mengchao Wang; Tiande Xie; Yanqiu Yu"
+                        data-published="2026-05-30"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -5994,6 +6288,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-04</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1111/1755-6724.70071" data-identifier="10.1111/1755-6724.70071"
+                        data-title="Tungsten‐Tin Mineralization and Its Dynamic Background in the Bozhushan Ore District, Southeastern Yunnan: Constraints From Petrology, Geochronology and Geochemistry" data-url="https://doi.org/10.1111/1755-6724.70071"
+                        data-venue="Acta Geologica Sinica - English Edition" data-authors="Bode Lu; Xuelong Liu; Shitao Zhang; Jialong Cheng; Xianchao Chen; Jiehu Zhou; Xue Mi; Tao Wang; Guangzhi Meng"
+                        data-published="2026-06-04"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -6120,6 +6427,21 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-30</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1029/2026gl121927" data-identifier="10.1029/2026gl121927"
+                        data-title="Integrated Geophysical Imaging Reveals the Origin and Pathways of Mantle‐Derived CO
+                    &lt;sub&gt;2&lt;/sub&gt;
+                    Beneath the Tangra Yumco Rift, Central Tibet" data-url="https://doi.org/10.1029/2026gl121927"
+                        data-venue="Geophysical Research Letters" data-authors="Zongxu Li; Rizheng He; Hanhan Tang; Qiang Xu; Lei Gao; Yulan Li; Lihui Tan; Xiao Niu; Ruo Jia"
+                        data-published="2026-05-30"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -6235,7 +6557,7 @@
           </div>
         </article>
         
-        <article data-score="0.5741640218466648" data-date="2026-06-02" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5741641185288304" data-date="2026-06-02" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -6248,6 +6570,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-02</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.5382/econgeo.5235" data-identifier="10.5382/econgeo.5235"
+                        data-title="Large-Scale Structural Controls on Gold Mineralization Along the Kalgoorlie Rift From Seismic Reflection Imaging in the Neoarchean Yilgarn Craton, Western Australia" data-url="https://doi.org/10.5382/econgeo.5235"
+                        data-venue="Economic Geology" data-authors="Andrew J. Calvert; Jyotindra Sapkota; Klaus Gessner; Gloria Arienti"
+                        data-published="2026-06-02"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -6361,7 +6696,7 @@
           </div>
         </article>
         
-        <article data-score="0.5721931617304608" data-date="2026-06-03" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5721931533122258" data-date="2026-06-03" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -6374,6 +6709,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-06-03</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1029/2025gc012820" data-identifier="10.1029/2025gc012820"
+                        data-title="Eastward Growth of the Tibetan Plateau Linked to Cenozoic Orogenic Wedge Deformation and Fluctuating Melt Sources" data-url="https://doi.org/10.1029/2025gc012820"
+                        data-venue="Geochemistry, Geophysics, Geosystems" data-authors="Quan Ou; Jia‐Jing Mei; Derek A. Wyman; Jian‐Qing Lai; Feng Zi; Kun Wang; Jing‐Yi Liu; Jia Liao; Zhiwu Li"
+                        data-published="2026-06-03"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -6488,7 +6836,7 @@
           </div>
         </article>
         
-        <article data-score="0.5690993422375841" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5690993816502343" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -6501,6 +6849,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-29</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.jseaes.2026.107172" data-identifier="10.1016/j.jseaes.2026.107172"
+                        data-title="Discrimination of gold deposit types based on big data analysis and machine-learning techniques" data-url="https://doi.org/10.1016/j.jseaes.2026.107172"
+                        data-venue="Journal of Asian Earth Sciences" data-authors="Lihao Feng; Qingfei Wang; Daniel D. Gregory; Lin Yang; Yunyun Niu; Guodong Zhu; Huajian Li; Hesen Zhao; Weijun Weng"
+                        data-published="2026-05-29"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -6614,7 +6975,7 @@
           </div>
         </article>
         
-        <article data-score="0.5679719518255631" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.5679720400894939" data-date="2026-05-30" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -6627,6 +6988,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-30</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.oregeorev.2026.107350" data-identifier="10.1016/j.oregeorev.2026.107350"
+                        data-title="Rapid and concentrated magmatism and mineralization of rare-metal granites: Evidence from the Limu deposit, South China" data-url="https://doi.org/10.1016/j.oregeorev.2026.107350"
+                        data-venue="Ore Geology Reviews" data-authors="Shao-Hua Zhang; Hehe Jiang; Wei-Qiang Ji; Fangyang Hu; Yue-Heng Yang; Zuohai Feng; Fu-Yuan Wu"
+                        data-published="2026-05-30"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -6740,7 +7114,7 @@
           </div>
         </article>
         
-        <article data-score="0.567655094057515" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
+        <article data-score="0.567655080919965" data-date="2026-05-29" class="bg-bg-card rounded-lg border border-border-color overflow-hidden hover:border-accent/50 transition-colors">
           <div class="p-4 md:p-5">
             <div class="mb-3">
               <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -6753,6 +7127,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-29</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1016/j.epsl.2026.120133" data-identifier="10.1016/j.epsl.2026.120133"
+                        data-title="Garnet pyroxenite at mid-mantle depths as a source of young lunar magmatism" data-url="https://doi.org/10.1016/j.epsl.2026.120133"
+                        data-venue="Earth and Planetary Science Letters" data-authors="Dian Ji; Rajdeep Dasgupta"
+                        data-published="2026-05-29"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -6879,6 +7266,19 @@
                 <span class="text-xs text-text-secondary">·</span>
                 <span class="text-xs text-text-secondary">crossref</span>
                 <span class="text-xs text-text-secondary md:hidden">· 2026-05-30</span>
+                
+                <button type="button" class="fav-btn ml-auto flex-shrink-0 p-0.5 text-text-secondary hover:text-amber-500 transition-colors"
+                        onclick="toggleFavorite(this)" aria-pressed="false" title="收藏/取消收藏"
+                        data-doi="10.1029/2025rg000912" data-identifier="10.1029/2025rg000912"
+                        data-title="Rock Physics of the Critical Zone: Models, Inversion, and Interpretation" data-url="https://doi.org/10.1029/2025rg000912"
+                        data-venue="Reviews of Geophysics" data-authors="Dario Grana; Brady A. Flinchum; Denys Grombacher; Andrew D. Parsekian; Clifford S. Riebe; W. Steven Holbrook"
+                        data-published="2026-05-30"
+                        data-source="crossref">
+                  <svg class="fav-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.31 4.76.69a.56.56 0 01.31.96l-3.44 3.36.81 4.74a.56.56 0 01-.81.59L12 16.9l-4.26 2.24a.56.56 0 01-.81-.59l.81-4.74-3.44-3.36a.56.56 0 01.31-.96l4.76-.69 2.13-4.31z"/>
+                  </svg>
+                </button>
+                
               </div>
               <div class="flex items-start justify-between gap-3 md:gap-4">
                 <div class="flex-1">
@@ -7062,5 +7462,95 @@
       }
     }
   </script>
+
+  
+  <script>
+    // Cloud favorites via Supabase. The publishable key is public-safe; access
+    // is gated by RLS + a per-user list_id passphrase kept only in localStorage.
+    const FAV = {
+      url: "https://ykgdbuldjmvghusbbwkt.supabase.co",
+      key: "sb_publishable_7C2VjetoK20OvKmDRqB8qw_v4KRT5pm",
+    };
+
+    function favKey(btn) {
+      return btn.getAttribute('data-doi') || btn.getAttribute('data-identifier') || btn.getAttribute('data-title');
+    }
+
+    function getListId(promptIfMissing) {
+      let id = localStorage.getItem('zotwatch_fav_list');
+      if (!id && promptIfMissing) {
+        id = (window.prompt('设置你的收藏口令（只需设一次，所有设备用同一个；也要加到 GitHub secret）：') || '').trim();
+        if (id) localStorage.setItem('zotwatch_fav_list', id);
+      }
+      return id || null;
+    }
+
+    async function favRpc(fn, payload) {
+      const r = await fetch(FAV.url + '/rest/v1/rpc/' + fn, {
+        method: 'POST',
+        headers: { 'apikey': FAV.key, 'Authorization': 'Bearer ' + FAV.key, 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!r.ok) throw new Error('RPC ' + fn + ' failed (' + r.status + ')');
+      const t = await r.text();
+      return t ? JSON.parse(t) : null;
+    }
+
+    function setStar(btn, on) {
+      btn.classList.toggle('faved', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      const art = btn.closest('article');
+      if (art) art.setAttribute('data-faved', on ? '1' : '0');
+    }
+
+    async function toggleFavorite(btn) {
+      const listId = getListId(true);
+      if (!listId) return;
+      const wasOn = btn.classList.contains('faved');
+      setStar(btn, !wasOn);  // optimistic
+      try {
+        if (wasOn) {
+          await favRpc('remove_favorite', { p_list_id: listId, p_key: favKey(btn) });
+        } else {
+          await favRpc('add_favorite', {
+            p_list_id: listId,
+            p_doi: btn.getAttribute('data-doi') || null,
+            p_identifier: btn.getAttribute('data-identifier') || null,
+            p_title: btn.getAttribute('data-title'),
+            p_url: btn.getAttribute('data-url') || null,
+            p_venue: btn.getAttribute('data-venue') || null,
+            p_authors: btn.getAttribute('data-authors') || null,
+            p_published: btn.getAttribute('data-published') || null,
+            p_source: btn.getAttribute('data-source') || null,
+          });
+        }
+      } catch (e) {
+        setStar(btn, wasOn);  // revert on failure
+        alert('收藏操作失败：' + e.message);
+      }
+    }
+
+    async function loadFavorites() {
+      const listId = getListId(false);
+      if (!listId) return;
+      let rows;
+      try { rows = await favRpc('get_favorites', { p_list_id: listId }); }
+      catch (e) { return; }
+      const saved = new Set((rows || []).map((r) => r.doi || r.identifier || r.title));
+      document.querySelectorAll('.fav-btn').forEach((b) => { if (saved.has(favKey(b))) setStar(b, true); });
+    }
+
+    function toggleFavOnly(btn) {
+      const on = btn.getAttribute('data-on') !== '1';
+      btn.setAttribute('data-on', on ? '1' : '0');
+      btn.classList.toggle('active', on);
+      document.querySelectorAll('#similarity-list > article').forEach((a) => {
+        a.style.display = (!on || a.getAttribute('data-faved') === '1') ? '' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadFavorites);
+  </script>
+  
 </body>
 </html>
